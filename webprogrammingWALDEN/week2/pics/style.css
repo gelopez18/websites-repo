@@ -1,0 +1,30 @@
+body {
+background-image: url(cropped-Cage-Background-BW.jpg) ;
+background-repeat: no-repeat;
+background-size:cover;
+
+}
+h1, h2 {
+    color:ivory;
+     
+}
+p{
+    color:ivory;
+    background-color: rgba(0, 0, 0, 0.589); 
+}
+hr{
+    background-color: firebrick;
+    height: 8px;
+    position:relative ;
+}
+footer{
+    background-color: dimgray;
+}
+table{
+    text-align: center;
+    color:ivory;
+    background-color: rgba(0, 0, 0, 0.466);
+}
+td{
+    color: white;
+}
