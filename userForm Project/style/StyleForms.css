@@ -1,0 +1,18 @@
+body {
+    
+    background-image: url("SL-103020-37400-03.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    opacity: 0.9;
+    
+}
+h2, label{
+    color: azure;
+}
+.card{
+    background-color: rgb(44, 42, 42);
+    
+}
+hr{
+    color: azure;
+}
