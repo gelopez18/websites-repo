@@ -7,12 +7,13 @@ window.jQuery = jQuery;
 export class App extends ApplicationBase{
     constructor(){
         super('To-Do App');
+        this.addRoute('Add User', null);
+        this.addRoute('Add Task',new toDoPage, true);
+        this.addRoute('Report',null)
+
     }
    
 }
 export let application = new App();
 application.show($('body'));
-application.NavBar.addlink('Add User', '');
-application.NavBar.addlink('Add Task','');
-application.NavBar.addlink('Reports','');
 application.NavBar.appendToElement($('body'));
