@@ -18,7 +18,8 @@ window.jQuery = jQuery;
     getElementString(){
         throw new Error('Please overRide this Method');
     }
-    enableJS(){
+    enableJS() {
         componentHandler.upgradeElement(this.element[0]);
     }
+
 }

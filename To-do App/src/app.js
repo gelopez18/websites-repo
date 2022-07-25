@@ -1,11 +1,18 @@
 import 'https://code.jquery.com/jquery-3.6.0.min.js'
-import { NavBar } from './UI/Nav-Bar.js';
+import ApplicationBase from './framework/application-base.js';
+
 window.$ = $;
 window.jQuery = jQuery;
 
-let tb = new NavBar("To-Do App");
-tb.addlink('Add User', '');
-tb.addlink('Add Task','');
-tb.addlink('Reports','');
-tb.appendToElement($('body'));
-
+export class App extends ApplicationBase{
+    constructor(){
+        super('To-Do App');
+    }
+   
+}
+export let application = new App();
+application.show($('body'));
+application.NavBar.addlink('Add User', '');
+application.NavBar.addlink('Add Task','');
+application.NavBar.addlink('Reports','');
+application.NavBar.appendToElement($('body'));
