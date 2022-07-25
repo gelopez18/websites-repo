@@ -96,6 +96,7 @@
     "is-wsl": "^1.1.0",
     "isarray": "^1.0.0",
     "jquery": "^3.6.0",
+    "jsdom": "^20.0.0",
     "jsonfile": "^3.0.1",
     "limiter": "^1.1.5",
     "localtunnel": "^2.0.2",
