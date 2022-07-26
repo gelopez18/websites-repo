@@ -38,7 +38,7 @@ export class NavBar extends BaseElement{
                   </nav>
               </div>
               <main class="mdl-layout__content">
-
+              <div class="page-content"><!-- Your content goes here --></div>
               </main>
               </div>
       `;

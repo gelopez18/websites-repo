@@ -1,5 +1,6 @@
 import 'https://code.jquery.com/jquery-3.6.0.min.js'
 import ApplicationBase from './framework/application-base.js';
+import { ToDoPage } from './pages/ToDoPage.js';
 
 window.$ = $;
 window.jQuery = jQuery;
@@ -8,7 +9,7 @@ export class App extends ApplicationBase{
     constructor(){
         super('To-Do App');
         this.addRoute('Add User', null);
-        this.addRoute('Add Task',new toDoPage, true);
+        this.addRoute('Add Task',new ToDoPage(), true);
         this.addRoute('Report',null)
 
     }
