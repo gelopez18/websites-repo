@@ -5,6 +5,7 @@ export class Button extends BaseElement{
     constructor(title){
         super();
         this.title=title;
+        this.styleString ="";
     }
     
     getElementString(){
@@ -14,4 +15,7 @@ export class Button extends BaseElement{
         </button> 
         `; 
     }
+   setStyleString(style){
+        this.styleString = style;
+   }
 }

@@ -8,16 +8,14 @@ export default class ApplicationBase{
         this.routeMap= {};
         this.defaultRoute=null;
     }
-    activateRoute(){
+    activateRoute(route){
         let content = this.NavBar.element.find('.page-content');
         content.empty();
         this.routeMap[route].appendToElement(content);
     }
     addRoute(id, page, defaultRoute=false){
-        this.NavBar.addlink(id,'');
-
+        this.NavBar.addlink(id, '');
         this.routeMap[id]=page;
-
         if(defaultRoute){
             this.defaultRoute=id;
         }
