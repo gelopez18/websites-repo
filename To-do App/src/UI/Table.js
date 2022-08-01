@@ -1,6 +1,6 @@
-import { BaseElement } from "./base-element";
+import { BaseElement } from "./base-element.js";
 
-export class table extends BaseElement{
+export class Table extends BaseElement{
     constructor(headers, data){
         super();
         this.headers = headers;

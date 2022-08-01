@@ -9,12 +9,12 @@ export class textfield extends BaseElement{
     
     getElementString(){
      return`
-     <form action="#">
-     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-       <input class="mdl-textfield__input" type="text" id="sample3">
-       <label class="mdl-textfield__label" for="sample3">${this.title}...</label>
+
+     <div class="mb-3">
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${this.title}">
+      <label for="formGroupExampleInput" class="form-label">${this.title}</label>
      </div>
-   </form> 
+  
         `; 
     }
     setStyleString(style){

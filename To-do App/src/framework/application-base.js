@@ -20,10 +20,17 @@ export default class ApplicationBase{
             this.defaultRoute=id;
         }
     }
-    show(element){
+
+
+    show(element) {
         this.NavBar.appendToElement(element);
         
-        if(this.defaultRoute){
+        this.NavBar.element.find('.mdl-navigation__link').click((event) => {
+            let route = event.target.innerHTML;
+            this.activateRoute(route.trim());
+        });
+        
+        if (this.defaultRoute) {
             this.activateRoute(this.defaultRoute);
         }
     }
