@@ -9,8 +9,8 @@ window.jQuery = jQuery;
 export class App extends ApplicationBase{
     constructor(){
         super('To-Do App');
-        this.addRoute('Add User', new AddUser(),  );
         this.addRoute('Add Task',new ToDoPage(), true);
+        this.addRoute('Add User', new AddUser());        
         this.addRoute('Report', null);
     }
    
