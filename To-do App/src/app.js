@@ -17,4 +17,4 @@ export class App extends ApplicationBase{
 }
 export let application = new App();
 application.show($('body'));
-application.NavBar.appendToElement($('body'));
+
