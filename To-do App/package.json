@@ -16,6 +16,7 @@
     "es6-module-loader": "^0.17.11",
     "jquery": "^3.6.0",
     "lite-server": "^2.6.1",
+    "mysql": "^2.18.1",
     "traceur": "^0.0.111"
   }
 }
