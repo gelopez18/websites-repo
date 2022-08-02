@@ -12,20 +12,23 @@ export class ToDoPage extends Page{
     createElement(){
       super.createElement();
 
-      
+      let searchbar = new textfield("Task", "TaskInput");
+          searchbar.appendToElement(this.element);
    
       let addTask = new Button("Add Task");
       let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
         addTask.setStyleString(styleStringAdd);
-        addTask.setType('submit')
+        addTask.setType('su')
         addTask.appendToElement(this.element);
           addTask.element.click(()=>{ 
+            let input = document.getElementById('TaskInput').value;
               let NewTask = new Task();
-              NewTask.listTask("Gabriel", "clean the room");
+              NewTask.listTask("Gabriel", input);
+              
           }) 
        
 
-      let emtybtn = new Button(" ");
+      let emtybtn = new Button("");
       let styleStringEmpty = 'btn btn-link col-lg-4  col-md-4 col-sm-4';
         emtybtn.setStyleString(styleStringEmpty);
         emtybtn.appendToElement(this.element);

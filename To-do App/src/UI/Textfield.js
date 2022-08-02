@@ -2,8 +2,9 @@ import { BaseElement } from "./base-element.js";
 
 export class textfield extends BaseElement{
     
-    constructor(title){
+    constructor(title, id){
         super();
+        this.id=id;
         this.title=title;
     }
     
@@ -11,7 +12,7 @@ export class textfield extends BaseElement{
      return`
     <form>
      <div class="mb-3">
-      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="${this.title}">
+      <input type="text" class="form-control" id="${this.id}" placeholder="${this.title}">
       <label for="formGroupExampleInput" class="form-label">${this.title}</label>
      </div>
     </form>
