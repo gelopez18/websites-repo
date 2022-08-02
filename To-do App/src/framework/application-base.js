@@ -12,7 +12,7 @@ export default class ApplicationBase{
     addRoute(id, page, defaultRoute = false){
         this.NavBar.addlink(id, '');
         this.routeMap[id]=page;
-        if(defaultRoute = true){
+        if(defaultRoute === true){
             this.defaultRoute=id;
         }
     }

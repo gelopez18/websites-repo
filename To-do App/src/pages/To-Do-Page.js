@@ -2,6 +2,7 @@
 import { Page } from "../framework/page.js";
 import { Button } from "../UI/button.js";
 import { textfield } from "../UI/Textfield.js";
+import { Task } from "../classes/tasks.js";
 
 
 export class ToDoPage extends Page{
@@ -11,16 +12,16 @@ export class ToDoPage extends Page{
     createElement(){
       super.createElement();
 
-      let searchbar = new textfield("Task");
-          searchbar.appendToElement(this.element);
+      
    
       let addTask = new Button("Add Task");
       let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
         addTask.setStyleString(styleStringAdd);
+        addTask.setType('submit')
         addTask.appendToElement(this.element);
-          addTask.element.click(()=>{
-
-          
+          addTask.element.click(()=>{ 
+              let NewTask = new Task();
+              NewTask.listTask("Gabriel", "clean the room");
           }) 
        
 

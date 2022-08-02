@@ -1,10 +1,16 @@
+
 export class Task {
-    constructor(user, task){
-        this.user = user;
-        this.task = task;
-        let tasklist = {};
+    constructor(){
+        this.user=null;
+        this.task=null;
     }
-
-    
-
+    listTask(user, task){
+        const task_list = {user, task};
+        const assignTask = [];
+        for(let i in task_list){
+            assignTask.push(task_list);
+        }
+        
+        console.log(assignTask);
+    }
 }
