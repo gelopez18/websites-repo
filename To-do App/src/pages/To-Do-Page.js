@@ -1,8 +1,8 @@
 
 import { Page } from "../framework/page.js";
 import { Button } from "../UI/button.js";
-
 import { textfield } from "../UI/Textfield.js";
+
 
 export class ToDoPage extends Page{
     constructor(){
@@ -18,6 +18,10 @@ export class ToDoPage extends Page{
       let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
         addTask.setStyleString(styleStringAdd);
         addTask.appendToElement(this.element);
+          addTask.element.click(()=>{
+
+          
+          }) 
        
 
       let emtybtn = new Button(" ");
