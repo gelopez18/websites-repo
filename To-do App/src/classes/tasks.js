@@ -1,19 +1,21 @@
+const list=[];
 export class Task{
-    constructor(user, task){
-        this.user=user;
-        this.task=task;
-        this.timeStamp=Date.now();
-        this.task_list=[];
-        this.assingTask={};
-    }
-    addTaskList(){
-        var sizeObj = Object.keys(this.assingTask).length;
-        for(let i=0;i<sizeObj;i++){
-            this.assingTask[i]={user, task};
-            for(let j=0;j<this.task_list.length;j++){
-                this.task_list.push(this.assingTask);
-            }
-            console.log(this.task_list);
-        }
-    }
+	constructor(name, task, date){
+		this.name =name;
+		this.task = task;
+        this.date =date;
+       
+	}
+    
+ addTaskList(){
+  
+  let name = document.getElementById("userCombo").value
+  let task =  document.getElementById("TaskInput").value;
+  let date =  Date.now();
+  let newTask = new Task(name, task, date)
+  list.push(newTask)
+  console.log(list);
+}    
+
+
 }
