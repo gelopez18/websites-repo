@@ -1,18 +1,19 @@
-
-export class Task {
-    constructor(){
-        this.user=null;
-        this.task=null;
+export class Task{
+    constructor(user, task){
+        this.user=user;
+        this.task=task;
+        this.timeStamp=Date.now();
+        this.task_list=[];
+        this.assingTask={};
     }
-    setlistTask(user, task){
-        let date = Date.now();
-        const task_list = {user, task, date};
-        const assignTask = [];  
-        
-            assignTask.push(task_list);
-       
-        console.log(assignTask);
+    addTaskList(){
+        var sizeObj = Object.keys(this.assingTask).length;
+        for(let i=0;i<sizeObj;i++){
+            this.assingTask[i]={user, task};
+            for(let j=0;j<this.task_list.length;j++){
+                this.task_list.push(this.assingTask);
+            }
+            console.log(this.task_list);
+        }
     }
-
-
 }

@@ -1,4 +1,5 @@
 import 'https://code.jquery.com/jquery-3.6.0.min.js'
+
 import ApplicationBase from './framework/application-base.js';
 import { AddUser } from './pages/Add-User-Pg.js';
 import { ToDoPage } from './pages/To-Do-Page.js';
@@ -15,6 +16,7 @@ export class App extends ApplicationBase{
     }
    
 }
+
 export let application = new App();
 application.show($('body'));
 

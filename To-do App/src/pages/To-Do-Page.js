@@ -5,7 +5,6 @@ import { textfield } from "../UI/Textfield.js";
 import { Task } from "../classes/tasks.js";
 import { Combox } from "../UI/combox.js";
 
-
 export class ToDoPage extends Page{
     constructor(){
         super('Add Task');
@@ -27,10 +26,8 @@ export class ToDoPage extends Page{
           addTask.element.click(()=>{ 
             let input = document.getElementById('TaskInput').value;
             let userName = document.getElementById('userCombo').value;
-            
-              let NewTask = new Task();
-              NewTask.setlistTask(userName, input);
-              
+              let newTask = new Task(input, userName);
+              newTask.addTaskList();
           }) 
        
 
