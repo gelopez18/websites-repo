@@ -4,13 +4,15 @@ export class Task {
         this.user=null;
         this.task=null;
     }
-    listTask(user, task){
-        const task_list = {user, task};
-        const assignTask = [];
-        for(let i in task_list){
-            assignTask.push(task_list);
-        }
+    setlistTask(user, task){
+        let date = Date.now();
+        const task_list = {user, task, date};
+        const assignTask = [];  
         
+            assignTask.push(task_list);
+       
         console.log(assignTask);
     }
+
+
 }

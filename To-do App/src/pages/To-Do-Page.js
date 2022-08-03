@@ -3,6 +3,7 @@ import { Page } from "../framework/page.js";
 import { Button } from "../UI/button.js";
 import { textfield } from "../UI/Textfield.js";
 import { Task } from "../classes/tasks.js";
+import { Combox } from "../UI/combox.js";
 
 
 export class ToDoPage extends Page{
@@ -14,6 +15,9 @@ export class ToDoPage extends Page{
 
       let searchbar = new textfield("Task", "TaskInput");
           searchbar.appendToElement(this.element);
+
+      let userCombo = new Combox('', 'userCombo');
+        userCombo.appendToElement(this.element);
    
       let addTask = new Button("Add Task");
       let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
@@ -22,8 +26,10 @@ export class ToDoPage extends Page{
         addTask.appendToElement(this.element);
           addTask.element.click(()=>{ 
             let input = document.getElementById('TaskInput').value;
+            let userName = document.getElementById('userCombo').value;
+            
               let NewTask = new Task();
-              NewTask.listTask("Gabriel", input);
+              NewTask.setlistTask(userName, input);
               
           }) 
        
