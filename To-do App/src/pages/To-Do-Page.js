@@ -4,6 +4,7 @@ import { Button } from "../UI/button.js";
 import { textfield } from "../UI/Textfield.js";
 import { Combox } from "../UI/combox.js";
 import { Task } from "../classes/tasks.js";
+import { Table } from "../UI/Table.js";
 
 export class ToDoPage extends Page{
     constructor(){
@@ -25,7 +26,15 @@ export class ToDoPage extends Page{
         addTask.appendToElement(this.element);
           addTask.element.click(()=>{ 
             let newObj = new Task();
-              newObj.addTaskList();
+              
+              let taskDataT =(newObj.addTaskList());
+              console.log(taskDataT);
+              document.getElementById("userCombo").value="";
+              document.getElementById("TaskInput").value="";
+              let headers = ['Assignee', 'task'];
+              let TaskTable = new Table(headers, taskDataT);
+              TaskTable.appendToElement(this.element);
+
           }) 
        
 
