@@ -14,7 +14,8 @@ export class Task{
   let date =  Date.now();
   let newTask = new Task(name, task, date)
   list.push(newTask)
-  console.log(list);
+   return list;
+
 }    
 
 
