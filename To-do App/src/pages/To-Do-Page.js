@@ -5,6 +5,8 @@ import { textfield } from "../UI/Textfield.js";
 import { Combox } from "../UI/combox.js";
 import { Task } from "../classes/tasks.js";
 import { Table } from "../UI/Table.js";
+import { UserList } from "../classes/user-Info.js";
+
 
 export class ToDoPage extends Page{
     constructor(){
@@ -12,11 +14,12 @@ export class ToDoPage extends Page{
     }
     createElement(){
       super.createElement();
-
+      let userData = (UserList);
+        
       let searchbar = new textfield("Task", "TaskInput");
           searchbar.appendToElement(this.element);
 
-      let userCombo = new Combox('', 'userCombo');
+      let userCombo = new Combox(userData, 'userCombo');
         userCombo.appendToElement(this.element);
    
       let addTask = new Button("Add Task");
@@ -28,12 +31,15 @@ export class ToDoPage extends Page{
             let newObj = new Task();
               
               let taskDataT =(newObj.addTaskList());
-              console.log(taskDataT);
+              
               document.getElementById("userCombo").value="";
               document.getElementById("TaskInput").value="";
-              let headers = ['Assignee', 'task'];
+              let headers = ['Date','Assignee', 'task'];
               let TaskTable = new Table(headers, taskDataT);
-              TaskTable.appendToElement(this.element);
+              
+                  TaskTable.appendToElement(this.element);
+
+              
 
           }) 
        
@@ -51,6 +57,6 @@ export class ToDoPage extends Page{
     }
     getElementString(){
     
-      return '<div class="container text-center"></div>'
+      return '<form class="container text-center"></form>'
     }
 }

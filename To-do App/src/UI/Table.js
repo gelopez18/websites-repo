@@ -7,24 +7,25 @@ export class Table extends BaseElement{
         this.data = data; 
     }
     getElementString(){
+        
         let thTags = '';
-        for (let h of this.headers) {
-            thTags += `<th class="mdl-data-table__cell--non-numeric">${h}</th>\n`;
-        }
+                for (let h of this.headers) {
+                    thTags += `<th class="mdl-data-table__cell--non-numeric">${h}</th>\n`;
+                }
         
         let trTags = '';
-        for (let row of this.data) {
-            trTags += `<tr>`;
-            let tdTags = '';
-            for (let property of this.headers) {
-                let field = row[property.toLowerCase()];
-                tdTags += `<td class="mdl-data-table__cell--non-numeric">
-                             ${field}
-                           </td>
-                          `;
-            }
-            trTags += '</tr>';
-        }
+                for (let row of this.data) {
+                    trTags += `<tr>`;
+                    let tdTags = '';
+                    for (let property of this.headers) {
+                        let field = row[property.toLowerCase()];
+                        tdTags += `<td class="mdl-data-table__cell--non-numeric">
+                                    ${field}
+                                </td>
+                                `;
+                    }
+                    trTags += '</tr>';
+                }
         
         return `
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">

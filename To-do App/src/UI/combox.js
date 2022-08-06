@@ -2,24 +2,32 @@ import { BaseElement } from "./base-element.js";
 
 export class Combox extends BaseElement{
     
-    constructor(title, id){
+    constructor(user, id){
         super();
         this.id=id;
-        this.title=title;
-        this.users=[];
+         this.users=user;
     }
 
 
     getElementString(){
-       /* let users='';
-        for (let user of this.users)
-            users =+ `<option value="1">${}</option>\n`;*/
+        let UsersName = ['Gabriel', 'Brenda'];
+        //this will add only the name of the users to an array 
+          let NamesInput =  this.users.map((el) => {
+            return el.name;
+          });
+          //then the array can be passed on to the options array to display to assign the task. 
+        NamesInput.forEach(element => {
+            UsersName.push(element);
+        });
+        let usersAdd='';
+            for (let name of UsersName){
+                usersAdd += `<option value="1">${name}</option>\n`;
+            }
+           
      return`
         <select class="form-select" aria-label="Default select example" id="${this.id}">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+        <option value="1">Assign the task to an user</option>\n
+                ${usersAdd}
         </select>
         `; 
     }
