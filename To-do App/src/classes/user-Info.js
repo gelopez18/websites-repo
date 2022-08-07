@@ -1,19 +1,20 @@
 export const UserList=[];
 export class UserInfo{
-	constructor(uName, org, date){
+	constructor(uName, Organization, date){
 		this.name =uName;
-		this.task = org;
+		this.Organization = Organization;
         this.date =date;
-       
 	}
     
  addUserList(){
   
-  let name = document.getElementById("UserName").value
-  let task =  document.getElementById("Org").value;
+  let Name = document.getElementById("Name").value
+  let Organization =  document.getElementById("Organization").value;
   let date =  Date.now();
-  let uObj = new UserInfo(name, task, date)
-  UserList.push(uObj)
+ 
+  let uObj = new UserInfo(Name, Organization, date)
+   
+  UserList.push(uObj);
    return UserList;
 
 }    

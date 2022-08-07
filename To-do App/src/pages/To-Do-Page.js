@@ -3,7 +3,7 @@ import { Page } from "../framework/page.js";
 import { Button } from "../UI/button.js";
 import { textfield } from "../UI/Textfield.js";
 import { Combox } from "../UI/combox.js";
-import { Task } from "../classes/tasks.js";
+import { list, Task } from "../classes/tasks.js";
 import { Table } from "../UI/Table.js";
 import { UserList } from "../classes/user-Info.js";
 import { Hr } from "../UI/hr.js";
@@ -37,7 +37,7 @@ export class ToDoPage extends Page{
           addTask.setType('su')
           addTask.appendToElement(this.element);
 
-          let TaskTable = new Table(headers);  
+          let TaskTable = new Table(headers, list);  
           addTask.element.click(()=>{ 
 
               let newObj = new Task();

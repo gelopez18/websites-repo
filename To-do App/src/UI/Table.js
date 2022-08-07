@@ -1,11 +1,11 @@
-import { list } from "../classes/tasks.js";
+
 import { BaseElement } from "./base-element.js";
 
 export class Table extends BaseElement{
-    constructor(headers){
+    constructor(headers, data){
         super();
         this.headers = headers;
-        this.data = list; 
+        this.data = data; 
         this.trTags = '';
     }
     addData(){
@@ -14,9 +14,10 @@ export class Table extends BaseElement{
             this.trTags += `<tr>`;
                 
                 for (let property of this.headers) {
+                    console.log(this.data);
                     let field = row[property.toLowerCase()];
                     this.trTags += `<td>${field}</td>`;
-                    console.log(field);
+
                     }
                     this.trTags +=`</tr>`;
                 }
