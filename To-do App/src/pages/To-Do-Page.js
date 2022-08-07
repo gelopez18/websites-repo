@@ -7,7 +7,6 @@ import { Task } from "../classes/tasks.js";
 import { Table } from "../UI/Table.js";
 import { UserList } from "../classes/user-Info.js";
 import { Hr } from "../UI/hr.js";
-import { DataSVC } from "../services/Data-services.js";
 
 
 export class ToDoPage extends Page{
@@ -19,8 +18,8 @@ export class ToDoPage extends Page{
       super.createElement();
       let userData = (UserList);
       let headers = ['Date','Assignee', 'task'];  
-      let taskDataT = '';
-        let data = new DataSVC(headers);
+
+        
 
         let space = new Hr();
           space.appendToElement(this.element);
@@ -37,17 +36,19 @@ export class ToDoPage extends Page{
           addTask.setStyleString(styleStringAdd);
           addTask.setType('su')
           addTask.appendToElement(this.element);
-          
-            addTask.element.click(()=>{ 
+
+          let TaskTable = new Table(headers);  
+          addTask.element.click(()=>{ 
               let newObj = new Task();
-              newObj.addTaskList()
+                newObj.addTaskList()
               
               document.getElementById("userCombo").value="";
               document.getElementById("TaskInput").value="";
-              taskDataT = data.addData();
-              
-            }) 
 
+                
+                TaskTable.appendToElement(this.element);
+            }) 
+            
       let styleStringEmpty = 'btn btn-link col-lg-4  col-md-4 col-sm-4';
         let emtybtn = new Button("");
           emtybtn.setStyleString(styleStringEmpty);
@@ -61,10 +62,8 @@ export class ToDoPage extends Page{
           space.appendToElement(this.element);
       let hr = new Hr('border border-primary border-3 opacity-75');
           hr.appendToElement(this.element);
-
           space.appendToElement(this.element);
-      let TaskTable = new Table(headers, taskDataT);  
-          TaskTable.appendToElement(this.element);
+
              
          
     }

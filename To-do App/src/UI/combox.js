@@ -7,8 +7,6 @@ export class Combox extends BaseElement{
         this.id=id;
          this.users=user;
     }
-
-
     getElementString(){
         let UsersName = ['Gabriel', 'Brenda'];
         //this will add only the name of the users to an array 
@@ -27,7 +25,7 @@ export class Combox extends BaseElement{
          //return the full element to the page  
      return`
         <select class="form-select" aria-label="Default select example" id="${this.id}">
-        <option value="1">Assign the task to an user</option>\n
+        <option value="1"></option>\n
                 ${usersAdd}
         </select>
         `; 
