@@ -17,7 +17,7 @@ export class ToDoPage extends Page{
     createElement(){
       super.createElement();
       let userData = (UserList);
-      let headers = ['Date','Assignee', 'task'];  
+      let headers = ['Date','name', 'task'];  
 
         
 
@@ -39,9 +39,11 @@ export class ToDoPage extends Page{
 
           let TaskTable = new Table(headers);  
           addTask.element.click(()=>{ 
+
               let newObj = new Task();
-                newObj.addTaskList()
-              
+
+                newObj.addTaskList();
+
               document.getElementById("userCombo").value="";
               document.getElementById("TaskInput").value="";
 

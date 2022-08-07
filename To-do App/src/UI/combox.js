@@ -20,7 +20,7 @@ export class Combox extends BaseElement{
         // send the user to the combo box
         let usersAdd='';
             for (let name of UsersName){
-                usersAdd += `<option value="1">${name}</option>\n`;
+                usersAdd += `<option value="${name}">${name}</option>\n`;
             }
          //return the full element to the page  
      return`

@@ -9,25 +9,28 @@ export class Table extends BaseElement{
         this.trTags = '';
     }
     addData(){
-
+        
         for (let row of this.data) {
             this.trTags += `<tr>`;
+                
                 for (let property of this.headers) {
                     let field = row[property.toLowerCase()];
-                    this.trTags += `<td class="mdl-data-table__cell--non-numeric">${field}</td>`;
+                    this.trTags += `<td>${field}</td>`;
+                    console.log(field);
                     }
                     this.trTags +=`</tr>`;
                 }
+
         return this.trTags ;
       }  
 
     getElementString(){
 
-        console.log(this.addData());
+        this.trTags = this.addData();
        
         let thTags = '';
                 for (let h of this.headers) {
-                    thTags += `<th class="mdl-data-table__cell--non-numeric">${h}</th>\n`;
+                    thTags += `<th>${h}</th>\n`;
                 }
 
         return `
