@@ -19,11 +19,12 @@ export class Combox extends BaseElement{
         NamesInput.forEach(element => {
             UsersName.push(element);
         });
+        // send the user to the combo box
         let usersAdd='';
             for (let name of UsersName){
                 usersAdd += `<option value="1">${name}</option>\n`;
             }
-           
+         //return the full element to the page  
      return`
         <select class="form-select" aria-label="Default select example" id="${this.id}">
         <option value="1">Assign the task to an user</option>\n

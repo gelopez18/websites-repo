@@ -3,6 +3,7 @@ import { Button } from "../UI/button.js";
 import { Page } from "../framework/page.js";
 import { textfield } from "../UI/Textfield.js";
 import { UserInfo } from "../classes/user-Info.js";
+import { Hr } from "../UI/hr.js";
 
 export class AddUser extends Page{
     constructor(){
@@ -28,6 +29,8 @@ export class AddUser extends Page{
                 let userData =(newUserObj.addUserList());
 
             })
+            let hr = new Hr();
+            hr.appendToElement(this.element);    
     }
 
     getElementString(){
