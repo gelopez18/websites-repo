@@ -12,7 +12,6 @@ export class App extends ApplicationBase{
         super('To-Do App');
         this.addRoute('Add Task',new ToDoPage(), true);
         this.addRoute('Add User', new AddUser());        
-
     }
    
 }

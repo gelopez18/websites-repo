@@ -31,13 +31,14 @@ export class AddUser extends Page{
         let line = new Hr('border border-primary border-3 opacity-75');
             space.appendToElement(this.element);
             line.appendToElement(this.element);    
-        let UserTable = new Table(headers, UserList); 
+ 
             svUser.element.click(() =>{
                 let newUserObj = new UserInfo();
                 
                 newUserObj.addUserList();
                 document.getElementById('Name').value="";
                 document.getElementById('Org').value="";
+                let UserTable = new Table(headers, UserList); 
                 UserTable.appendToElement(this.element);
             })
             let hr = new Hr();
@@ -48,6 +49,6 @@ export class AddUser extends Page{
         return `<form class="container"></form>`;
     }
 
-    
+
 
 }

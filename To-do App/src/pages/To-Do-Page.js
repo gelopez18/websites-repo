@@ -19,9 +19,7 @@ export class ToDoPage extends Page{
       let userData = (UserList);
       let headers = ['Date','name', 'task'];  
 
-        
-
-        let space = new Hr();
+      let space = new Hr();
           space.appendToElement(this.element);
 
         let searchbar = new textfield("Task", "TaskInput");
@@ -37,7 +35,6 @@ export class ToDoPage extends Page{
           addTask.setType('su')
           addTask.appendToElement(this.element);
 
-            
             addTask.element.click(()=>{ 
 
               let newObj = new Task();
@@ -46,7 +43,9 @@ export class ToDoPage extends Page{
 
               document.getElementById("userCombo").value="";
               document.getElementById("TaskInput").value="";
-                addTable();
+              let TaskTable = new Table(headers, list);
+              TaskTable.appendToElement(this.element);
+            
             }) 
             
       let styleStringEmpty = 'btn btn-link col-lg-4  col-md-4 col-sm-4';
@@ -63,13 +62,9 @@ export class ToDoPage extends Page{
       let hr = new Hr('border border-primary border-3 opacity-75');
           hr.appendToElement(this.element);
           space.appendToElement(this.element);
-          function addTable(){
-            let TaskTable = new Table(headers, list);
-             TaskTable.appendToElement(this.element);
-                getElementString(){
-                  return '<div class="container text-center"></div>'
-                }
-          } 
+
+
+          
     }
     getElementString(){
       return '<div class="container text-center"></div>'
