@@ -12,13 +12,15 @@ export class AddUser extends Page{
     }
     createElement(){
         super.createElement();
-        let space = new Hr();
-            space.appendToElement(this.element);
+        let headers = ['Name', 'Org', 'date'];
 
-        let userName = new textfield("User", "Name");
+        let space = new Hr();
+          space.appendToElement(this.element);
+
+        let userName = new textfield("User", 'Name');
             userName.appendToElement(this.element);
 
-        let Org = new textfield("Organization Name", "Organization");
+        let Org = new textfield("Organization Name", 'Org');
             Org.appendToElement(this.element);
             
 
@@ -28,15 +30,14 @@ export class AddUser extends Page{
             svUser.appendToElement(this.element);
         let line = new Hr('border border-primary border-3 opacity-75');
             space.appendToElement(this.element);
-            line.appendToElement(this.element);
-            let headers = ['Name','Organization']
+            line.appendToElement(this.element);    
         let UserTable = new Table(headers, UserList); 
             svUser.element.click(() =>{
                 let newUserObj = new UserInfo();
                 
                 newUserObj.addUserList();
-                document.getElementById("Name").value="";
-                document.getElementById("Organization").value="";
+                document.getElementById('Name').value="";
+                document.getElementById('Org').value="";
                 UserTable.appendToElement(this.element);
             })
             let hr = new Hr();
@@ -47,5 +48,6 @@ export class AddUser extends Page{
         return `<form class="container"></form>`;
     }
 
+    
 
 }

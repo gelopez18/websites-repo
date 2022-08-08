@@ -37,8 +37,8 @@ export class ToDoPage extends Page{
           addTask.setType('su')
           addTask.appendToElement(this.element);
 
-          let TaskTable = new Table(headers, list);  
-          addTask.element.click(()=>{ 
+            
+            addTask.element.click(()=>{ 
 
               let newObj = new Task();
 
@@ -46,9 +46,7 @@ export class ToDoPage extends Page{
 
               document.getElementById("userCombo").value="";
               document.getElementById("TaskInput").value="";
-
-                
-                TaskTable.appendToElement(this.element);
+                addTable();
             }) 
             
       let styleStringEmpty = 'btn btn-link col-lg-4  col-md-4 col-sm-4';
@@ -65,14 +63,17 @@ export class ToDoPage extends Page{
       let hr = new Hr('border border-primary border-3 opacity-75');
           hr.appendToElement(this.element);
           space.appendToElement(this.element);
-
-             
-         
+          function addTable(){
+            let TaskTable = new Table(headers, list);
+             TaskTable.appendToElement(this.element);
+                getElementString(){
+                  return '<div class="container text-center"></div>'
+                }
+          } 
     }
     getElementString(){
-    
-      return '<form class="container text-center"></form>'
+      return '<div class="container text-center"></div>'
     }
-
- 
+    
 }
+ 

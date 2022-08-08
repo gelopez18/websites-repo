@@ -12,12 +12,13 @@ export class Table extends BaseElement{
         
         for (let row of this.data) {
             this.trTags += `<tr>`;
+                console.log(row);
                 
                 for (let property of this.headers) {
-                    console.log(this.data);
+                    
                     let field = row[property.toLowerCase()];
                     this.trTags += `<td>${field}</td>`;
-
+                        
                     }
                     this.trTags +=`</tr>`;
                 }
