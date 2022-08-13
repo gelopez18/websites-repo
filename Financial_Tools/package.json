@@ -1,0 +1,20 @@
+{
+  "name": "amortization",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "es6-module-loader": "^0.17.11",
+    "jquery": "^3.6.0"
+  }
+}
