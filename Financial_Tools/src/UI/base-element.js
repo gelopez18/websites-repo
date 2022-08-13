@@ -6,6 +6,10 @@ export class BaseElement{
     constructor(){
         this.element = null;
     }
+    appendToElement(el){
+        this.createElement();
+        el.append(this.element);
+    }
     createElement(){
         let s = this.getElementString();
         this.element = $(s);
@@ -13,5 +17,5 @@ export class BaseElement{
     getElementString(){
         throw new error('Please overRide this Methods');
     }
-    enableJS()
+
 }
