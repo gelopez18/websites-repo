@@ -2,8 +2,9 @@
 import { BaseElement } from "./base-element.js";
 
 export class Table extends BaseElement{
-    constructor(headers, data){
+    constructor(id, headers, data){
         super();
+        this.id=id;
         this.headers = headers;
         this.data = data; 
         this.trTags = '';
@@ -27,7 +28,7 @@ export class Table extends BaseElement{
       }  
 
     getElementString(){
-
+       
         this.trTags = this.addData();
        
         let thTags = '';
@@ -35,8 +36,9 @@ export class Table extends BaseElement{
                     thTags += `<th>${h}</th>\n`;
                 }
 
+
         return `
-        <table class="table table-dark table-striped">
+        <table class="table table-dark table-striped" id='${this.id}'>
                 <thead>
                     <tr>
                     ${thTags}

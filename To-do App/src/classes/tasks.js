@@ -15,11 +15,11 @@ export class Task{
     let date =  new Date();
     let finalDate = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()} @ ${date.getHours()}:${date.getMinutes()}`;
     let recordNumb=1; 
+
     for (let i =0;i < list.length; i++){
         recordNumb++;
-         
     }
-    console.log(recordNumb);
+ 
     let newTask = new Task(recordNumb, name, task, finalDate);
     list.push(newTask);
     return list;

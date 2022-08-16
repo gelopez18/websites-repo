@@ -34,17 +34,20 @@ export class ToDoPage extends Page{
           addTask.setStyleString(styleStringAdd);
           addTask.setType('su')
           addTask.appendToElement(this.element);
+          
 
+          
             addTask.element.click(()=>{ 
 
               let newObj = new Task();
 
                 newObj.addTaskList();
-
+              
               document.getElementById("userCombo").value="";
-              document.getElementById("TaskInput").value="";
-              let TaskTable = new Table(headers, list);
+              document.getElementById("TaskInput").value=""
+              let TaskTable = new Table('TaskTable',headers, list);
               TaskTable.appendToElement(this.element);
+              
             
             }) 
             
@@ -53,10 +56,16 @@ export class ToDoPage extends Page{
           emtybtn.setStyleString(styleStringEmpty);
           emtybtn.appendToElement(this.element);
       let styleStringRemove = 'btn btn-danger btn-lg col-lg-4 col-md-4 col-sm-4';
-        let removeTask = new Button("Remove Task");
-      
+        let removeTask = new Button("Remove Task");      
           removeTask.setStyleString(styleStringRemove);
           removeTask.appendToElement(this.element);
+          let table = document.getElementsByTagName('table').innerHTML;
+          //testing to see if we can delete the table 
+          removeTask.element.click(()=>{
+            
+            console.log(table);
+
+          })
 
           space.appendToElement(this.element);
       let hr = new Hr('border border-primary border-3 opacity-75');
@@ -64,6 +73,9 @@ export class ToDoPage extends Page{
           space.appendToElement(this.element);
 
 
+          //testing to see if we can delete the table 
+          let TaskTable = new Table('TaskTable',headers, list);
+          TaskTable.appendToElement(this.element);
           
     }
     getElementString(){
