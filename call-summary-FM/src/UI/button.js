@@ -1,11 +1,25 @@
 import { BaseElement } from "./base-element.js";
 
-export class button extends BaseElement{
-    constructor(title, Method, action){
+export class Button extends BaseElement{
+    
+    constructor(title){
         super();
-        this.title =title;
-        
-
+        this.title=title;
+        this.styleString ="";
+        this.type="";
     }
-
+    
+    getElementString(){
+     return`
+        <button type="button" class="${this.styleString}" type="${this.type}">
+          ${this.title}
+        </button> 
+        `; 
+    }
+   setStyleString(style){
+        this.styleString = style;
+   }
+   setType(type){
+    this.type=type;
+   }
 }
