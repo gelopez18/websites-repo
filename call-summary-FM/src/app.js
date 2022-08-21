@@ -1,13 +1,13 @@
-import { BaseElement } from "./UI/base-element.js";
-import { button } from "./UI/button.js";
-import { textfield } from "./UI/text-Field.js";
 import ApplicationBase from "./frameWork/Application-Base.js";
 import { clientSummary } from "./pages/Client-summary.js";
+import 'https://code.jquery.com/jquery-3.6.0.min.js'
 
+window.$ = $;
+window.jQuery = jQuery;
 export class app extends ApplicationBase{
     constructor(){
         super();
-            this.addRoute('Sale summary', new clientSummary(), true);
+            this.addRoute('Sale Summary', new clientSummary(), true);
     }
 
 

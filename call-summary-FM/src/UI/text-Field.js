@@ -12,8 +12,8 @@ export class textfield extends BaseElement{
      return`
    
      <div class="mb-3">
-      <input type="text" class="form-control" id="${this.id}" placeholder="${this.title}">
-      <label for="formGroupExampleInput" class="form-label">${this.title}</label>
+        <label for="formGroupExampleInput" class="form-label">${this.title}</label>
+        <input type="text" class="form-control" id="${this.id}" placeholder="${this.title}">
      </div>
 
         `; 
