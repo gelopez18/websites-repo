@@ -4,7 +4,7 @@ import { Page } from "../frameWork/page.js";
 import { Hr } from "../UI/hr.js";
 import { orderList, SalesSummary } from "../Classes/Sales-Summary.js";
 import { Label } from "../UI/lables.js";
-import { DbConnection } from "../services/dbConnection.js";
+
 
 export class clientSummary extends Page {
     constructor(){
@@ -35,9 +35,7 @@ export class clientSummary extends Page {
                     let salesOrder = new SalesSummary();
                         salesOrder.addOrderList();
                     console.log(orderList);
-                    let DBCon = new DbConnection();
-                        
-
+                    
                 })
         let emtybtn = new Button("");
             let styleStringEmpty = 'btn btn-link btn-lg col-lg-4 col-md-4 col-sm-4';

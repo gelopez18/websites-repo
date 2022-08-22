@@ -10,12 +10,10 @@ export class textfield extends BaseElement{
     
     getElementString(){
      return`
-   
      <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">${this.title}</label>
-        <input type="text" class="form-control" id="${this.id}" placeholder="${this.title}">
+        <input type="text" name="${this.id}" class="form-control" id="${this.id}"  placeholder="${this.title}">
      </div>
-
         `; 
     }
     setStyleString(style){
