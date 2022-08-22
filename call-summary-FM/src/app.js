@@ -8,6 +8,7 @@ export class app extends ApplicationBase{
     constructor(){
         super();
             this.addRoute('Sale Summary', new clientSummary(), true);
+            this.addRoute('Sale Report', )
     }
 
 

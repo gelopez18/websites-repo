@@ -3,6 +3,7 @@ import { Button } from "../UI/button.js";
 import { Page } from "../frameWork/page.js";
 import { Hr } from "../UI/hr.js";
 import { orderList, SalesSummary } from "../Classes/Sales-Summary.js";
+import { Label } from "../UI/lables.js";
 
 export class clientSummary extends Page {
     constructor(){
@@ -10,6 +11,9 @@ export class clientSummary extends Page {
     }
     createElement(){
         super.createElement();
+        
+        let PageTitle = new Label('Sales Summary');
+            PageTitle.appendToElement(this.element);
         let space = new Hr();
             space.appendToElement(this.element);
         let wknumb = new textfield('Week Number','wkNumb');
@@ -20,6 +24,7 @@ export class clientSummary extends Page {
             clientName.appendToElement(this.element);
         let total = new textfield('Total Before Taxes','Client');
             total.appendToElement(this.element);
+            space.appendToElement(this.element);
         let Add = new Button("Add");
             let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
             Add.setStyleString(styleStringAdd);
@@ -31,17 +36,17 @@ export class clientSummary extends Page {
                     console.log(orderList);
                 })
         let emtybtn = new Button("");
-            let styleStringEmpty = 'btn btn-link btn-lg col-lg-4  col-md-4 col-sm-4';
+            let styleStringEmpty = 'btn btn-link btn-lg col-lg-4 col-md-4 col-sm-4';
             emtybtn.setStyleString(styleStringEmpty);
             emtybtn.appendToElement(this.element);
         let save = new Button('Save');
-            let styleStringSave = 'btn btn-primary btn-lg col-lg-4  col-md-4 col-sm-4';
+            let styleStringSave = 'btn btn-primary btn-lg col-lg-4 col-md-4 col-sm-4';
             save.setStyleString(styleStringSave);
             save.setType('submit')
             save.appendToElement(this.element);
             
     }
     getElementString(){
-        return`<form method='POST' action =''></form>`;
+        return`<form method='POST' action ='saveInDB.php'></form>`;
     }
 }
