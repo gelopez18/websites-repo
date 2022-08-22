@@ -11,7 +11,7 @@ export class Button extends BaseElement{
     
     getElementString(){
      return`
-        <button type="button" class="${this.styleString}" type="${this.type}">
+        <button type="${this.type}" class="${this.styleString}" type="${this.type}">
           ${this.title}
         </button> 
         `; 

@@ -8,7 +8,7 @@ export class SalesSummary{
 
 	}
     
- addTaskList(){
+ addOrderList(){
         let sro = document.getElementById("sro").value;
         let wknumb =  document.getElementById("wkNumb").value;
         let clientName = document.getElementById("Client").value;
