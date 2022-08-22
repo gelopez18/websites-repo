@@ -2,6 +2,7 @@ import { textfield } from "../UI/text-Field.js";
 import { Button } from "../UI/button.js";
 import { Page } from "../frameWork/page.js";
 import { Hr } from "../UI/hr.js";
+import { orderList, SalesSummary } from "../Classes/Sales-Summary.js";
 
 export class clientSummary extends Page {
     constructor(){
@@ -22,12 +23,23 @@ export class clientSummary extends Page {
         let Add = new Button("Add");
             let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
             Add.setStyleString(styleStringAdd);
-            Add.setType('submit')
+            
             Add.appendToElement(this.element);
-        let emtybtn = new Button('');
-            let styleStringEmpty = 'btn btn-link col-lg-4  col-md-4 col-sm-4';
+                Add.element.click(()=>{
+                    let salesOrder = new SalesSummary();
+                        salesOrder.addTaskList();
+                    console.log(orderList);
+                })
+        let emtybtn = new Button("");
+            let styleStringEmpty = 'btn btn-link btn-lg col-lg-4  col-md-4 col-sm-4';
             emtybtn.setStyleString(styleStringEmpty);
             emtybtn.appendToElement(this.element);
+        let save = new Button('Save');
+            let styleStringSave = 'btn btn-primary btn-lg col-lg-4  col-md-4 col-sm-4';
+            save.setStyleString(styleStringSave);
+            save.setType('submit')
+            save.appendToElement(this.element);
+            
     }
     getElementString(){
         return`<form method='POST' action =''></form>`;
