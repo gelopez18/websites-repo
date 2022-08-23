@@ -1,13 +1,5 @@
 <?php
-  $fmdb_hostname='localhost';
-  $fmdb_db='userpractice';  
-  $fmdb_username= 'fpan004';
-  $fmdb_password='22443';
-$server =  mysqli_connect($fmdb_hostname, $fmdb_username, $fmdb_password, $fmdb_db);
-
-if(mysqli_connect_errno()){
-    die ("unable to reach Sever: " . mysql_error());
-  }
+  require_once __DIR__ . '\services\connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
         $SRO=$_POST['sro'];
@@ -41,18 +33,17 @@ mysqli_close($server);
           padding-left: 10px;
           padding-right: 10px;
              }
-             body{
-                background-image: url("Picture1.png");
+             img{
+
                 background-repeat: no-repeat;
+                background-color: (#4b4c4d);
                 background-position: center;
                 background-size: 78%;
-                opacity:0.95;
-                animation: 
              }    
     </style>
   </head>
   <body>
-
+        <img height = 100 width = 700 class="d-flex justify-content-end" src='Picture1.png'>     
         <script type= 'module' src='src/app.js'></script>
 
     </body>
