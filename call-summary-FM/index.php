@@ -44,11 +44,10 @@ mysqli_close($server);
              body{
                 background-image: url("Picture1.png");
                 background-repeat: no-repeat;
-                background-position: 200px, 700px;
+                background-position: center;
                 background-size: 78%;
-                opacity:0.75;
-                margin-left: auto;
-                margin-right: auto;              
+                opacity:0.95;
+                animation: 
              }    
     </style>
   </head>

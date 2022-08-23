@@ -41,15 +41,18 @@ export class clientSummary extends Page {
             let styleStringEmpty = 'btn btn-link btn-lg col-lg-4 col-md-4 col-sm-4';
             emtybtn.setStyleString(styleStringEmpty);
             emtybtn.appendToElement(this.element);
-        let save = new Button('Remove');
+        let remove = new Button('Remove');
             let styleStringSave = 'btn btn-danger btn-lg col-lg-4 col-md-4 col-sm-4';
-            save.setStyleString(styleStringSave);
-            
-            save.appendToElement(this.element);
+            remove.setStyleString(styleStringSave);      
+            remove.appendToElement(this.element);
+            let input ="";
+            remove.element.click(()=>{
+                input = prompt("Please enter the SRO to delete");
+            })
             
     }
     getElementString(){
-        return`<form class="card-body" method="POST" action ="./src/services/saveInDB.php"></form>`;
+        return`<form class="card-body" method="POST" action ="index.php"></form>`;
     }
 }
 
