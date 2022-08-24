@@ -6,14 +6,60 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 }
 
 $sqlQuery = "SELECT SRO, total, client FROM salessummaries WHERE wkNumb='$wkNumb';";
+$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb';";
+$total = $server->query($sqlSum);
+
 $Result=array();
 $Result= $server->query($sqlQuery);
+
 if ($Result->num_rows > 0) {
     echo "
         <br>
         <div class='container'>
-        <img class= '' src='Picture2.png'>
-        <br>
+        <div class='row'>
+        <div class='col'>
+        <img class='' src='Picture2.png'>
+        </div>
+     
+        <div class='col-5'>
+            <table >
+                <tr id='wkInfo'>
+                    <td>
+                        Summary ID <b>wk$wkNumb-2022</b>
+                        <hr>
+                    </td>
+
+                </tr>
+                
+                <tr>
+                    <td class=>
+                    <i>If summary ID number is not provided, one will be assigned to your summary. It is suggested you provide your own unique reference number for easier tracking of your work. Reference numbers will reflect on your statements, therefore avoid repeating.<i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                </tr>
+              
+            </table>
+        </div>
+        <div class='col'>
+        </div>
+        <div class='col-3'>
+            <table class='table table-striped'>
+                <tr>
+                    <th></th>
+                    <th>
+                    <b>Comment for Corporate<b>
+                    </th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+        <div class='col'>
+        </div>
+        </div>
     Class or Work C = Core, N = National, P = PMA, S = Service Contract
         <table class='table table-striped'>
             <tr>
@@ -51,7 +97,41 @@ if ($Result->num_rows > 0) {
                 <td></td>
             </tr>";
     }
-    echo "</table></div>";
+    echo "
+        <tr>
+            <td></td>
+            <td></td>
+            <td><b>\$1487.07</b></td>
+            <td></td>
+            <td></td>
+            <td><b>Preparer's Signature</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b>Date</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><b></b></td>
+            <td></td>
+            <td></td>
+            <td><b>Product Managers Approval</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b>Date</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table><b>*Split 1 and 2 represents % of partner's total commission, not percentage of value of job</b></div>";
   } else {
     echo "0 results";
   }
@@ -62,8 +142,13 @@ if ($Result->num_rows > 0) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Sales Summary</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <style>
+        #wkInfo{
+            border-collapse: collapse;
+        }
+    </style>
   </head>
   <body>
 
