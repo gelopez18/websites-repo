@@ -36,7 +36,7 @@ mysqli_close($server);
              img{
 
                 background-repeat: no-repeat;
-                background-color: (#4b4c4d);
+                background-color: #4b4c4d;
                 background-position: center;
                 background-size: 78%;
              }    
