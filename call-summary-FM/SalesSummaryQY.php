@@ -15,7 +15,7 @@ $Result= $server->query($sqlQuery);
 if ($Result->num_rows > 0) {
     echo "
         <br>
-        <div class='container'>
+        <div class=''>
         <div class='row'>
         <div class='col'>
         <img class='' src='Picture2.png'>
@@ -50,7 +50,7 @@ if ($Result->num_rows > 0) {
             <table class='table table-striped'>
                 <tr>
                     <th></th>
-                    <th>
+                    <th colspan='4'>
                     <b>Comment for Corporate<b>
                     </th>
                     <th></th>
@@ -61,12 +61,12 @@ if ($Result->num_rows > 0) {
         </div>
         </div>
     Class or Work C = Core, N = National, P = PMA, S = Service Contract
-        <table class='table table-striped'>
+        <table class='table table-striped text-center'>
             <tr>
             <th>Class</th>
             <th>SRO</th>
             <th>SRO Amount less Tax</th>
-            <th>Customer Name</th>
+            <th >Customer Name</th>
             <th>PMT Code</th>
             <th>Partner ID</th>
             <th>Comm%</th>
@@ -84,7 +84,7 @@ if ($Result->num_rows > 0) {
                 <td>C</td>
                 <td>".$row["SRO"]."</td>
                 <td>\$".$row["total"]."</td>
-                <td>".$row["client"]."</td>
+                <td >".$row["client"]."</td>
                 <td>CH</td>
                 <td>FPAN004</td>
                 <td>46%</td>
@@ -95,43 +95,39 @@ if ($Result->num_rows > 0) {
                 <td>54%</td>
                 <td></td>
                 <td></td>
+
             </tr>";
     }
     echo "
-        <tr>
-            <td></td>
-            <td></td>
+
+    </table>
+    <table class='table table-striped '>
+            <tr>
+            <td colspan='2'>Total</td>
             <td><b>\$1487.07</b></td>
             <td></td>
-            <td></td>
-            <td><b>Preparer's Signature</b></td>
-            <td></td>
+            <td colspan='4'><b>Preparer's Signature</b></td>
             <td></td>
             <td></td>
-            <td></td>
-            <td><b>Date</b></td>
+            <td colspan='4'><b>Date</b></td>
             <td></td>
             <td></td>
             <td></td>
-
         </tr>
         <tr>
-            <td></td>
+            <td colspan='2'></td>
             <td></td>
             <td><b></b></td>
+            <td colspan='4'><b>Product Managers Approval</b></td>
             <td></td>
+            <td></td>           
+            <td colspan='4'><b>Date</b></td>
             <td></td>
-            <td><b>Product Managers Approval</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><b>Date</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td ></td>
+            <td></td> 
         </tr>
-    </table><b>*Split 1 and 2 represents % of partner's total commission, not percentage of value of job</b></div>";
+    </table>
+    <b>*Split 1 and 2 represents % of partner's total commission, not percentage of value of job</b></div>";
   } else {
     echo "0 results";
   }
