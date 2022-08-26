@@ -25,10 +25,14 @@ export class ComboField extends BaseElement{
             }
          //return the full element to the page  
      return`
-        <select class="form-select" aria-label="Default select example" id="${this.id}">
-        <option value="1"></option>\n
-                ${cityAdd}
-        </select>
+     <br><div class="input-group mb-8">
+            <label class="input-group-text" for="inputGroupSelect01">${this.id}</label>
+                <select class="form-select" id="${this.id}"  >
+                    <option selected>Choose...</option>
+                    ${cityAdd}
+                </select>
+        </div><br>
+  
         `; 
     }
 

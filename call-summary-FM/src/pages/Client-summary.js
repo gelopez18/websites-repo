@@ -17,19 +17,26 @@ export class clientSummary extends Page {
 
         let PageTitle = new Label('Sales Summary');
             PageTitle.appendToElement(this.element);
+
         let space = new Hr();
             space.appendToElement(this.element);
+
         let wknumb = new textfield('Week Number','wkNumb');
             wknumb.appendToElement(this.element);
+
         let SRO = new textfield('SRO','sro');
             SRO.appendToElement(this.element);
+
         let clientName = new textfield('Client','Client');
-        let cities = new ComboField('cities', citylist);
-            cities.appendToElement(this.element);
             clientName.appendToElement(this.element);
+
+        let cities = new ComboField('Cities', citylist);
+            cities.appendToElement(this.element);    
+
         let total = new textfield('Total Before Taxes','total');
             total.appendToElement(this.element);
             space.appendToElement(this.element);
+            
         let Add = new Button("Add");
             let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
             Add.setStyleString(styleStringAdd);
