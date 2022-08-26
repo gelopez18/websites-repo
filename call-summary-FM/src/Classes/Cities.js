@@ -1,4 +1,4 @@
-const citylist =[{ city:"Acampo", tax:"0.0775"},
+export const citylist =[{ city:"Acampo", tax:"0.0775"},
 { city:"Acton", tax:"0.095"},
 { city:"Adelaida", tax:"0.0725"},
 { city:"Adelanto*", tax:"0.0775"},

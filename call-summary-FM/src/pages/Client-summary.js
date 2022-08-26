@@ -4,7 +4,8 @@ import { Page } from "../frameWork/page.js";
 import { Hr } from "../UI/hr.js";
 import { orderList, SalesSummary } from "../Classes/Sales-Summary.js";
 import { Label } from "../UI/lables.js";
-
+import { ComboField } from "../UI/combo-field.js";
+import { citylist } from "../Classes/Cities.js";
 
 export class clientSummary extends Page {
     constructor(){
@@ -23,7 +24,8 @@ export class clientSummary extends Page {
         let SRO = new textfield('SRO','sro');
             SRO.appendToElement(this.element);
         let clientName = new textfield('Client','Client');
-        
+        let cities = new ComboField('cities', citylist);
+            cities.appendToElement(this.element);
             clientName.appendToElement(this.element);
         let total = new textfield('Total Before Taxes','total');
             total.appendToElement(this.element);
