@@ -42,12 +42,14 @@ export class clientSummary extends Page {
             emtybtn.setStyleString(styleStringEmpty);
             emtybtn.appendToElement(this.element);
         let remove = new Button('Remove');
-            let styleStringSave = 'btn btn-danger btn-lg col-lg-4 col-md-4 col-sm-4';
+            let styleStringSave = 'btn btn-primary btn-lg col-lg-4 col-md-4 col-sm-4';
             remove.setStyleString(styleStringSave);      
             remove.appendToElement(this.element);
             let input ="";
             remove.element.click(()=>{
-                input = prompt("Please enter the SRO to delete");
+                input = prompt("Please enter the week number");
+                    
+
             })
             
     }
