@@ -1,4 +1,4 @@
-<!--<?php
+<?php
   require_once __DIR__ . '/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 mysqli_close($server);
 }
-?>-->
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,13 +33,13 @@ mysqli_close($server);
           padding-left: 10px;
           padding-right: 10px;
              }
-             img{
+             /*img{
 
                 background-repeat: no-repeat;
-                background-color: #4b4c4d;
+                
                 background-position: center;
                 background-size: 78%;
-             }    
+             }  */  
     </style>
   </head>
   <body>
