@@ -95,16 +95,22 @@ if ($Result->num_rows > 0) {
                 <td>54%</td>
                 <td></td>
                 <td></td>
-
             </tr>";
     }
     echo "
 
-    </table>
+    
+    <b>*Split 1 and 2 represents % of partner's total commission, not percentage of value of job</b></div>";
+  } else {
+    echo "0 results";
+  }
+
+  while($row = mysqli_fetch_array($total)){
+    echo "</table>
     <table class='table table-striped '>
             <tr>
             <td colspan='2'>Total</td>
-            <td><b>\$1487.07</b></td>
+            <td><b>\$".$row[0]."</b></td>
             <td></td>
             <td colspan='4'><b>Preparer's Signature</b></td>
             <td></td>
@@ -127,9 +133,9 @@ if ($Result->num_rows > 0) {
             <td></td> 
         </tr>
     </table>
-    <b>*Split 1 and 2 represents % of partner's total commission, not percentage of value of job</b></div>";
-  } else {
-    echo "0 results";
+    <b>*Split 1 and 2 represents % of partner's total commission, not percentage of value of job</b></div>
+    ";
+
   }
  $server->close();
 ?>
