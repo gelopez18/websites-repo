@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 }
 
-$sqlQuery = "SELECT SRO, total, client FROM salessummaries WHERE wkNumb='$wkNumb';";
+$sqlQuery = "SELECT SRO, total, client, clientClass, city FROM salessummaries WHERE wkNumb='$wkNumb';";
 $sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb';";
 $total = $server->query($sqlSum);
 
@@ -81,14 +81,14 @@ if ($Result->num_rows > 0) {
     // output data of each row
     while($row = $Result->fetch_assoc()) {
       echo "<tr>
-                <td>C</td>
+                <td>".$row["clientClass"]."</td>
                 <td>".$row["SRO"]."</td>
                 <td>\$".$row["total"]."</td>
                 <td >".$row["client"]."</td>
                 <td>CH</td>
                 <td>FPAN004</td>
                 <td>46%</td>
-                <td></td>
+                <td>".$row["city"]."</td>
                 <td></td>
                 <td></td>
                 <td>FDEL001</td>
