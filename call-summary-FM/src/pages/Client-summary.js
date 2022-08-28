@@ -7,6 +7,7 @@ import { Label } from "../UI/lables.js";
 import { ComboField } from "../UI/combo-field.js";
 import { citylist } from "../Classes/Cities.js";
 import { FEClass, FEWeight } from "../Classes/FE-Info.js";
+import { Check } from "../UI/checks.js";
 
 export class clientSummary extends Page {
     constructor(){
@@ -21,7 +22,10 @@ export class clientSummary extends Page {
 
         let space = new Hr();
             space.appendToElement(this.element);
-
+        
+        let ClientClass = new Check('Client Class', 'ClientClass')
+            ClientClass.appendToElement(this.element);
+            
         let wknumb = new textfield('Week Number','wkNumb');
             wknumb.appendToElement(this.element);
 
@@ -58,7 +62,7 @@ export class clientSummary extends Page {
             FEType.setStyleString(styleString); 
             FEType.appendToElement(this.element); 
             space.appendToElement(this.element);
-            
+
         let total = new textfield('Total Before Taxes','total');
             total.appendToElement(this.element);
             space.appendToElement(this.element);

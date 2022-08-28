@@ -6,11 +6,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $wkNumb=$_POST['wkNumb'];
         $client=$_POST['Client'];
         $total=$_POST['total'];
+        $city=$_POST['Cities'];
+        $ClientClass=$_POST['ClientClass'];
+        if($city="Santa Clarita*"){
+          $overRide="TR";
+          $ORPercent="0.1"
+        }
+
         $inputDate=getdate(date("U"));
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
         
-    $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate');";
+    $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate, city, clientClass, OverRide, overRidePercent) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$overRide','$ORPercent');";
 
     if (mysqli_query($server, $InsertToTable)){
         echo "<div class= 'container'><h1>User Saved Succesfully</h1>";

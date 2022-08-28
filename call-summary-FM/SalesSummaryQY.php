@@ -7,6 +7,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 $sqlQuery = "SELECT SRO, total, client, clientClass, city FROM salessummaries WHERE wkNumb='$wkNumb';";
 $sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb';";
+
 $total = $server->query($sqlSum);
 
 $Result=array();
@@ -79,7 +80,12 @@ if ($Result->num_rows > 0) {
             <th>*% of Total Comm</th>
             </tr>";
     // output data of each row
+    
     while($row = $Result->fetch_assoc()) {
+        $TRquery="SELECT city FROM salessummaries WHERE SRO=".$row["SRO"].";";
+        $SendQuery=$server->query($TRquery);
+        $TR="";
+        if($SendQuery="Santa Clarita*")$TR="TR";
       echo "<tr>
                 <td>".$row["clientClass"]."</td>
                 <td>".$row["SRO"]."</td>
