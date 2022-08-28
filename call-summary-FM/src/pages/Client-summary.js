@@ -6,6 +6,7 @@ import { orderList, SalesSummary } from "../Classes/Sales-Summary.js";
 import { Label } from "../UI/lables.js";
 import { ComboField } from "../UI/combo-field.js";
 import { citylist } from "../Classes/Cities.js";
+import { FEClass, FEWeight } from "../Classes/FE-Info.js";
 
 export class clientSummary extends Page {
     constructor(){
@@ -42,16 +43,22 @@ export class clientSummary extends Page {
 
         let cities = new ComboField('Cities', CityName);
             cities.appendToElement(this.element); 
-            
+            space.appendToElement(this.element);    
+
         let  qty = new textfield('Qty', 'FEqty');
             let styleString = 'col-lg-4 col-md-4 col-sm-4';
             qty.setStyleString(styleString);   
             qty.appendToElement(this.element);
 
-        let FEweight = new ComboField('Weight', 'Weight');
+        let FEweight = new ComboField('Weight', FEWeight);
             FEweight.setStyleString(styleString); 
             FEweight.appendToElement(this.element); 
 
+        let FEType = new ComboField('Type', FEClass);
+            FEType.setStyleString(styleString); 
+            FEType.appendToElement(this.element); 
+            space.appendToElement(this.element);
+            
         let total = new textfield('Total Before Taxes','total');
             total.appendToElement(this.element);
             space.appendToElement(this.element);
