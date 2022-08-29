@@ -1,4 +1,4 @@
-<!--<?php
+<?php
   require_once __DIR__ . '/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $ClientClass=$_POST['ClientClass'];
         if($city="Santa Clarita*"){
           $overRide="TR";
-          $ORPercent="0.1";
+          $ORPercent="10%";
         }
 
         $inputDate=getdate(date("U"));
@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 mysqli_close($server);
 }
-?>-->
+?>
 <!doctype html>
 <html lang="en">
   <head>
