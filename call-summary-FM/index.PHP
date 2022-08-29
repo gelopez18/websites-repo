@@ -7,10 +7,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $client=$_POST['Client'];
         $total=$_POST['total'];
         $city=$_POST['Cities'];
-        $ClientClass=$_POST['ClientClass'];
+        $TempClientClass=$_POST['ClientClass'];
+        if($tempClientClass=false){
+          $ClientClass="N";
+        }else{
+          $ClientClass="C";
+        }
         if($city="Santa Clarita*"){
           $overRide="TR";
-          $ORPercent="10%";
+          $ORPercent="10";
         }
 
         $inputDate=getdate(date("U"));
