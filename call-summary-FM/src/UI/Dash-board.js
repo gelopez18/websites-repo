@@ -16,21 +16,20 @@ export class DashBoard extends BaseElement{
       let links = '';
       for (let link of this.links) //watch for the Href
           links += `<li class="nav-item">
-          <a class="nav-link active mdl-navigation__link" aria-current="page" >${link.title}</a>
+          <a class="nav-link" >${link.title}</a>
         </li>
        `;
       return `
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-
+        <img src="Picture1.png" alt="" width="200" height="35" class="d-inline-block align-text-top">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             ${links}
           </ul>
-
         </div>
       </div>
     </nav>
