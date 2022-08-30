@@ -18,7 +18,7 @@ export class ComboField extends BaseElement{
          //return the full element to the page  
      return`
      <br><div class="input-group">
-            <label class="input-group-text" for="inputGroupSelect01">${this.id}</label>
+            <label class="input-group-stext" for="inputGroupSelect01">${this.id}</label>
                 <select class="form-select ${this.styleString}" id="${this.id}"  name="${this.id}">
                     <option selected>Choose...</option>
                     ${options}
