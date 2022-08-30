@@ -1,12 +1,24 @@
 <?php
+
+
+include_once 'headers.php';
 require_once 'connectDb.php';
-$wkNumb = 46;
-if($_SERVER['REQUEST_METHOD']=='POST'){
 
-}
+//prompt function
+function prompt($prompt_msg){
+    echo("<script type='text/javascript'> var answer = prompt('".$prompt_msg."'); </script>");
+    
+    $answer = "<script>document.write(answer);</script>";
+    return($answer);
+    }
+    
+    //program
+    $prompt_msg = "Please a Week Number ";
+    $name = prompt($prompt_msg);
+    echo($name);
 
-$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb';";
-$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb';";
+$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$name';";
+$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$name';";
 
 $total = $server->query($sqlSum);
 
