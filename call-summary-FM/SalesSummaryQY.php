@@ -4,21 +4,10 @@
 include_once 'headers.php';
 require_once 'connectDb.php';
 
-//prompt function
-function prompt($prompt_msg){
-    echo("<script type='text/javascript'> var answer = prompt('".$prompt_msg."'); </script>");
-    
-    $answer = "<script>document.write(answer);</script>";
-    return($answer);
-    }
-    
-    //program
-    $prompt_msg = "Please a Week Number ";
-    $name = prompt($prompt_msg);
-    echo($name);
+    $wkNumb=47;
 
-$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$name';";
-$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$name';";
+$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='N' LIMIT 10 ;";
+$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb' ;";
 
 $total = $server->query($sqlSum);
 
@@ -171,7 +160,10 @@ if ($Result->num_rows > 0) {
     </style>
   </head>
   <body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+
   </body>
 </html>

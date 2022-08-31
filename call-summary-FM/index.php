@@ -8,24 +8,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $total=$_POST['total'];
         $city=$_POST['Cities'];
         $TempClientClass=$_POST['ClientClass'];
-        if($tempClientClass=false){
-          $ClientClass="N";
-        }else{
-          $ClientClass="C";
-        }
-        if($city="Santa Clarita*"){
-          $overRide="TR";
-          $ORPercent="10";
-        }
+
+
 
         $inputDate=getdate(date("U"));
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
         
-    $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate, city, clientClass, OverRide, overRidePercent) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$ClientClass','$overRide','$ORPercent');";
+    $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate, city, clientClass/*, OverRide, overRidePercent*/) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass'/*,'$overRide','$ORPercent'*/);";
 
     if (mysqli_query($server, $InsertToTable)){
-        echo "<div class= 'container'><h1>User Saved Succesfully</h1>";
+        echo "<script>alert('User Saved Succesfully');</script>";
     } else {
         echo"<h1>User Not saved</h1><br>"
         . mysqli_error($server);
@@ -34,12 +27,28 @@ mysqli_close($server);
 }
 include_once 'headers.php';
 ?> 
-<form class="card-body container" method="POST" action="index.php"><h1>Invoice Details</h1><hr class="undefined"><div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="ClientClass" name="ClientClass">
-        <label class="form-check-label" for="flexCheckDefault">
+<form class="card-body container" method="POST" action="index.php"><h1>Invoice Details</h1><hr class="undefined">
+    <div class='row row-cols-auto'>
+    <div class="col"></div>
+      <div class="col"></div>
+      <div class="form-check col ">
+        <input class="form-check-input " type="checkbox" value="N" id="ClientClass" name="ClientClass">
+        <label class="form-check-label " for="flexCheckDefault">
           National
         </label>
-      </div><div class="mb-3">
+      </div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="form-check col">
+        <input class="form-check-input " type="checkbox" value="C" id="ClientClass" name="ClientClass">
+        <label class="form-check-label " for="flexCheckDefault">
+          Core
+        </label>
+      </div>
+      
+      </div>
+      <hr class="undefined">
+      <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Week Number</label>
         <input type="text" name="wkNumb" class="form-control " id="wkNumb" placeholder="Week Number">
      </div><div class="mb-3">
@@ -49,7 +58,7 @@ include_once 'headers.php';
         <label for="formGroupExampleInput" class="form-label">Client</label>
         <input type="text" name="Client" class="form-control " id="Client" placeholder="Client">
      </div><br>
-     <div class="input-group mb-3">
+<div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Cities</label>
             <select class="form-select" id="Cities" name="Cities">
                     <option selected="">Choose...</option>
@@ -1839,10 +1848,13 @@ include_once 'headers.php';
                     <option value="Zamora">Zamora</option>
                     <option value="Zenia">Zenia</option>
                 </select>
-        </div><br><hr class="undefined"><div class="mb-3">
+        </div><br>
+<hr class="undefined">
+<div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Total Before Taxes</label>
         <input type="text" name="total" class="form-control " id="total" placeholder="Total Before Taxes">
-     </div><hr class="undefined"><button type="submit" class="btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4">
+</div>
+<hr class="undefined"><button type="submit" class="btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4">
           Add
         </button><button type="" class="btn btn-link btn-lg col-lg-4 col-md-4 col-sm-4">
           

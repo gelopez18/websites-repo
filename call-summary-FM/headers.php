@@ -29,8 +29,9 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">Reports</a>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                  <li><a class="dropdown-item" href="SalesSummaryQY.php" >Sales Summary</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+
+                  <li><a class="dropdown-item"  href="SalesSummaryQY.php" >Sales Summary</a></form></li>
+                 <li><a class="dropdown-item" href="#">Another action</a></li>
 
                 </ul>
               </li>
@@ -42,4 +43,4 @@
         </div>
       </div>
     </nav>
-
+  
