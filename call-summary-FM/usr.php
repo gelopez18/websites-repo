@@ -1,7 +1,7 @@
 <?php
     require_once 'headers.php';
     require_once 'connectDB.php';
-    if($_SERVER["REQUEST==METHOD"]=="POST"){
+    if($_SERVER["REQUEST_METHOD"]=="POST"){
         $SRO=$_POST['sro'];
         $wkNumb=$_POST['wkNumb'];
         $client=$_POST['Client'];
@@ -12,7 +12,17 @@
         $inputDate=getdate(date("U"));
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
+        $InsertToTable = "INSERT INTO usr(SRO, wkNumb, client, total, inputDate, city, clientClass) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass');";
+
+        
+    if (mysqli_query($server, $InsertToTable)){
+        echo "<script>alert('USR Saved Succesfully');</script>";
+    } else {
+        echo"<h1>User Not saved</h1><br>"
+        . mysqli_error($server);
     }
+    }
+    mysqli_close($server);
 ?>
 <form class=container method="POST" action="">
 <form class="card-body container" method="POST" action="usr.php"><h1>USR Details</h1><hr class="undefined">
