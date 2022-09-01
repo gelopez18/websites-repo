@@ -18,9 +18,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate, city, clientClass/*, OverRide, overRidePercent*/) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass'/*,'$overRide','$ORPercent'*/);";
 
     if (mysqli_query($server, $InsertToTable)){
-        echo "<script>alert('User Saved Succesfully');</script>";
+        echo "<script>alert('Invoice Saved Succesfully');</script>";
     } else {
-        echo"<h1>User Not saved</h1><br>"
+        echo"<h1>Invoice Not saved</h1><br>"
         . mysqli_error($server);
     }
 mysqli_close($server);
