@@ -31,19 +31,19 @@ include_once 'headers.php';
     <div class='row row-cols-auto'>
     <div class="col"></div>
       <div class="col"></div>
-      <div class="form-check col ">
-        <input class="form-check-input " type="checkbox" value="N" id="ClientClass" name="ClientClass">
-        <label class="form-check-label " for="flexCheckDefault">
-          National
+      <div class="mb-3 form-check">
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" Value="N">
+        <label class="form-check-label" for="flexRadioDefault1">
+            National
         </label>
-      </div>
-      <div class="col"></div>
-      <div class="col"></div>
-      <div class="form-check col">
-        <input class="form-check-input " type="checkbox" value="C" id="ClientClass" name="ClientClass">
-        <label class="form-check-label " for="flexCheckDefault">
-          Core
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" Value="C" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+            Core
         </label>
+        </div>
       </div>
       
       </div>

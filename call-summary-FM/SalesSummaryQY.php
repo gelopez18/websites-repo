@@ -4,9 +4,12 @@
 include_once 'headers.php';
 require_once 'connectDb.php';
 
-    $wkNumb=47;
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $clientClass = $_POST['ClientClass'];
+    $wkNumb=$_POST['wkNumb'];
+}
 
-$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='N' LIMIT 10 ;";
+$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='$clientClass' LIMIT 10 ;";
 $sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb' ;";
 
 $total = $server->query($sqlSum);
