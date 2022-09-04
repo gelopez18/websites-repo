@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $city=$_POST['Cities'];
         $TempClientClass=$_POST['ClientClass'];
 
-        if(($city!="Bouquet Canyon (Santa Clarita*)") || ($city!="Canyon Country (Santa Clarita*)") || ($city!="Friendly Valley (Santa Clarita*)") || ($city!="Newhall (Santa Clarita*)") || ($city!="Santa Clarita*") || ($city!="Saugus (Santa Clarita*)") || ($city!="Sylmar (Los Angeles*)") || ($city!="Stevenson Ranch") || ($city!="Val Verde Park") || ($city!="Castaic") || ($city!="Honby" || $city!="Solemint") || ($city!="Forest Park") || ($city!="Vacaville*") || ($city!="Valencia (Santa Clarita*)")){
+        if(($city == "Bouquet Canyon (Santa Clarita*)") || ($city == "Canyon Country (Santa Clarita*)") || ($city == "Friendly Valley (Santa Clarita*)") || ($city == "Newhall (Santa Clarita*)") || ($city == "Santa Clarita*") || ($city == "Saugus (Santa Clarita*)") || ($city == "Sylmar (Los Angeles*)") || ($city == "Stevenson Ranch") || ($city == "Val Verde Park") || ($city == "Castaic") || ($city == "Honby" || $city == "Solemint") || ($city == "Forest Park") || ($city == "Vacaville*") || ($city == "Valencia (Santa Clarita*)")){
           
           $overRide="TR";
           $ORPercent=10;
