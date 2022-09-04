@@ -34,8 +34,8 @@
                 <ul class="dropdown-menu dropdown-menu-dark">
 
                   <li><a class="dropdown-item"  href="SSQuery.php" >Sales Summary</a></form></li>
-                 <li><a class="dropdown-item" href="#">Another action</a></li>
-
+                 <li><a class="dropdown-item" href="USRQuery.php">USR Report</a></li>
+                 <li><a class="dropdown-item" href="Dashboard.php">Dashboard Report</a></li>
                 </ul>
               </li>
               

@@ -4,7 +4,7 @@ require_once 'headers.php';
 <form class = container method="POST" action="SalesSummaryQY.php" >
 <div class="card ">
   <div class="card-header">
-    Sales Summary Requested
+    USR Requesting
   </div>
   <div class="card-body">
   <label for="exampleInputEmail1" class="form-label">Week number address</label>
