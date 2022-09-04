@@ -8,11 +8,16 @@
         $total=$_POST['total'];
         $city=$_POST['Cities'];
         $TempClientClass=$_POST['ClientClass'];
-
+        if($TempClientClass == 'N' ){
+            $clientClass="N";
+          }else{
+            $clientClass="C";
+          }
+            
         $inputDate=getdate(date("U"));
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
-        $InsertToTable = "INSERT INTO usr(SRO, wkNumb, client, total, inputDate, city, clientClass) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass');";
+        $InsertToTable = "INSERT INTO usr(SRO, wkNumb, client, total, inputDate, city, clientClass) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$clientClass');";
 
         
     if (mysqli_query($server, $InsertToTable)){
@@ -31,13 +36,13 @@
       <div class="col"></div>
       <div class="mb-3 form-check">
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" Value="N">
+        <input class="form-check-input" type="radio" name="ClientClass" id="ClientClass" Value="N">
         <label class="form-check-label" for="flexRadioDefault1">
             National
         </label>
         </div>
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" Value="C" checked>
+        <input class="form-check-input" type="radio" name="ClientClass" id="ClientClass" Value="C" checked>
         <label class="form-check-label" for="flexRadioDefault2">
             Core
         </label>
