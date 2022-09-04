@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
         
-    $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate, city, clientClass, OverRide, overRidePercent) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass','$overRide','$ORPercent');";
+    $InsertToTable = "INSERT INTO  salessummaries(SRO, wkNumb, client, total, inputDate, city, clientClass, OverRide, overRidePercent) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass','$overRide','$ORPercent');";
 
     if (mysqli_query($server, $InsertToTable)){
         echo "<script>alert('Invoice Saved Succesfully')$city;</script>";

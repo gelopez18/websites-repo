@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }
 
 $sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='$clientClass' LIMIT 10 ;";
-$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb' ;";
+$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$clientClass';";
 
 $total = $server->query($sqlSum);
 
