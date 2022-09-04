@@ -17,12 +17,18 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
           $overRide="";
           $ORPercent=0;
         }
-
+        if($TempClientClass == 'N' ){
+          $clientClass="N";
+        }else{
+          $clientClass="C";
+        }
+          
+        
         $inputDate=getdate(date("U"));
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
         
-    $InsertToTable = "INSERT INTO  salessummaries(SRO, wkNumb, client, total, inputDate, city, clientClass, OverRide, overRidePercent) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass','$overRide','$ORPercent');";
+    $InsertToTable = "INSERT INTO  salessummaries(SRO, wkNumb, client, total, inputDate, city, clientClass, OverRide, overRidePercent) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$clientClass','$overRide','$ORPercent');";
 
     if (mysqli_query($server, $InsertToTable)){
         echo "<script>alert('Invoice Saved Succesfully')$city;</script>";
