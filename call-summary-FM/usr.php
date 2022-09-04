@@ -7,6 +7,7 @@ require_once './includes/connectDB.php';
         $client=$_POST['Client'];
         $total=$_POST['total'];
         $city=$_POST['Cities'];
+        $Comment=$_POST['Comment'];
         $TempClientClass=$_POST['ClientClass'];
         if($TempClientClass == 'N' ){
             $clientClass="N";
@@ -16,10 +17,7 @@ require_once './includes/connectDB.php';
             
         $inputDate=getdate(date("U"));
        
-        $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
-        $InsertToTable = "INSERT INTO usr(SRO, wkNumb, client, total, inputDate, city, clientClass) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$clientClass');";
-
-        
+        $InsertToTable = "INSERT INTO  usr(SRO, wkNumb, client, total, city, clientClass, Comment, month, day, year) VALUES ('$SRO','$wkNumb','$client','$total','$city','$clientClass','$Comment','$inputDate[month]','$inputDate[mday]','$inputDate[year]');";
     if (mysqli_query($server, $InsertToTable)){
         echo "<script>alert('USR Saved Succesfully');</script>";
     } else {
@@ -61,6 +59,10 @@ require_once './includes/connectDB.php';
         <label for="formGroupExampleInput" class="form-label">Client</label>
         <input type="text" name="Client" class="form-control " id="Client" placeholder="Client">
      </div><br>
+     <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Comment</label>
+        <textarea class="form-control" name="Comment" id="exampleFormControlTextarea1" rows="3" placeholder="Comment"></textarea>
+     </div>
 <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Cities</label>
             <select class="form-select" id="Cities" name="Cities">
