@@ -1,5 +1,5 @@
 <?php
-  require_once __DIR__ . '/connectDB.php';
+  require_once __DIR__ . './includes/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
         $SRO=$_POST['sro'];
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
 mysqli_close($server);
 }
-include_once 'headers.php';
+include_once './includes/headers.php';
 ?> 
 <form class="card-body container" method="POST" action="index.php"><h1>Invoice Details</h1><hr class="undefined">
     <div class='row row-cols-auto'>
