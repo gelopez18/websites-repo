@@ -1,6 +1,6 @@
 <?php
-    require_once 'headers.php';
-    require_once 'connectDB.php';
+require_once './includes/headers.php';
+require_once './includes/connectDB.php';
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         $SRO=$_POST['sro'];
         $wkNumb=$_POST['wkNumb'];
