@@ -1,8 +1,6 @@
 <?php
-
-
 require_once 'headers.php';
-    require_once 'connectDB.php';
+require_once 'connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $clientClass = $_POST['ClientClass'];

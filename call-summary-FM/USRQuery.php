@@ -1,7 +1,7 @@
 <?php 
 require_once 'headers.php';
 ?>
-<form class = container method="POST" action="SalesSummaryQY.php" >
+<form class = container method="POST" action="USRQY.php" >
 <div class="card ">
   <div class="card-header">
     USR Requesting
