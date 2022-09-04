@@ -22,8 +22,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         }else{
           $clientClass="C";
         }
-          
-        
         $inputDate=getdate(date("U"));
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
