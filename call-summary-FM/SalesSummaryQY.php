@@ -18,6 +18,7 @@ $Result=array();
 $Result= $server->query($sqlQuery);
 
 if ($Result->num_rows > 0) {
+
     echo "
         <br>
         <div class=''>
@@ -86,10 +87,7 @@ if ($Result->num_rows > 0) {
     // output data of each row
     
     while($row = $Result->fetch_assoc()) {
-        $TRquery="SELECT city FROM salessummaries WHERE SRO=".$row["SRO"].";";
-        $SendQuery=$server->query($TRquery);
-        $TR="";
-        if($SendQuery="Santa Clarita*")$TR="TR";
+
       echo "<tr>
                 <td>".$row["clientClass"]."</td>
                 <td>".$row["SRO"]."</td>

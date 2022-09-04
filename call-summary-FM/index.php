@@ -9,16 +9,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $city=$_POST['Cities'];
         $TempClientClass=$_POST['ClientClass'];
 
-
+        if(($city!="Bouquet Canyon (Santa Clarita*)") || ($city!="Canyon Country (Santa Clarita*)") || ($city!="Friendly Valley (Santa Clarita*)") || ($city!="Newhall (Santa Clarita*)") || ($city!="Santa Clarita*") || ($city!="Saugus (Santa Clarita*)") || ($city!="Sylmar (Los Angeles*)") || ($city!="Stevenson Ranch") || ($city!="Val Verde Park") || ($city!="Castaic") || ($city!="Honby" || $city!="Solemint") || ($city!="Forest Park") || ($city!="Vacaville*") || ($city!="Valencia (Santa Clarita*)")){
+          
+          $overRide="TR";
+          $ORPercent=10;
+        }else{
+          $overRide="";
+          $ORPercent=0;
+        }
 
         $inputDate=getdate(date("U"));
        
         $finalDate="$inputDate[weekday], $inputDate[month] $inputDate[mday], $inputDate[year]";
         
-    $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate, city, clientClass/*, OverRide, overRidePercent*/) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass'/*,'$overRide','$ORPercent'*/);";
+    $InsertToTable = "INSERT INTO  SalesSummaries(SRO, wkNumb, client, total, inputDate, city, clientClass, OverRide, overRidePercent) VALUES ('$SRO','$wkNumb','$client','$total','$finalDate','$city','$TempClientClass','$overRide','$ORPercent');";
 
     if (mysqli_query($server, $InsertToTable)){
-        echo "<script>alert('Invoice Saved Succesfully');</script>";
+        echo "<script>alert('Invoice Saved Succesfully')$city;</script>";
     } else {
         echo"<h1>Invoice Not saved</h1><br>"
         . mysqli_error($server);
@@ -33,13 +40,13 @@ include_once 'headers.php';
       <div class="col"></div>
       <div class="mb-3 form-check">
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" Value="N">
+        <input class="form-check-input" type="radio" name="ClientClass" id="ClientClass" Value="N">
         <label class="form-check-label" for="flexRadioDefault1">
             National
         </label>
         </div>
         <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" Value="C" checked>
+        <input class="form-check-input" type="radio" name="ClientClass" id="ClientClass" Value="C" checked>
         <label class="form-check-label" for="flexRadioDefault2">
             Core
         </label>
