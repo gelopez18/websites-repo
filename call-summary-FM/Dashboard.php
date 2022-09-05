@@ -24,8 +24,10 @@ let phparray= [];
 
 echo "
 <script>  
-     phparray.unshift(['Month', 'Total']);
-    console.log(phparray);
+     const sortedPHParray = phparray.sort((a, b)=>{return a[1] - b[1];})
+
+     sortedPHParray.unshift(['Month', 'Total']);
+    console.log(sortedPHParray);
 </script>";
 
 ?>
@@ -71,28 +73,33 @@ while($rowInvoice = mysqli_fetch_array($salesTotal)){
 
         </div>  
         <div class="col-8 col-sm-12 col-md-8">
-                <script type="text/javascript">
-
-                
+        <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawStuff);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable(phparray);
+      function drawStuff() {
+        var data = new google.visualization.arrayToDataTable(sortedPHParray);
 
         var options = {
+          width: 800,
+          legend: { position: 'none' },
           chart: {
             title: 'Franchise Performance',
-            subtitle: 'Invoices and Profit',
-          }
+            subtitle: 'Sales Per Month' },
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Months'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" }
         };
 
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
+        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        // Convert the Classic options to Material options.
         chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
+      };
     </script>
-            <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+            <div id="top_x_div" style="width: 800px; height: 600px;"></div>
 
         </div> 
     </div>
