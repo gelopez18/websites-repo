@@ -1,5 +1,5 @@
 <?php
-  require_once __DIR__ . './includes/connectDB.php';
+  require_once __DIR__ . '/includes/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
         $SRO=$_POST['sro'];

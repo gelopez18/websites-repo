@@ -22,7 +22,7 @@ if ($Result->num_rows > 0) {
         <div class=''>
         <div class='row'>
         <div class='col'>
-        <img class='' src='Picture2.png'>
+        <img class='' src='./img/Picture2.png'>
         </div>
      
         <div class='col-5'>
