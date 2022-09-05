@@ -4,11 +4,12 @@ require_once './includes/connectDB.php';
 $date=getdate(date("U"));
 
 $Sumsales="SELECT sum(total) FROM salessummaries WHERE year='$date[year]';";
-$salesTotal=$server->query($Sumsales);
+$salesTotal=mysqli_query($server, $Sumsales);
 
 $MonthlyCount = "SELECT count(SRO) FROM salessummaries WHERE year='$date[year]';";
+$MontTotalCount = mysqli_query($server, $MonthlyCount);
 $MonthlySum = "SELECT month, sum(total) FROM salessummaries WHERE year='$date[year]' GROUP BY month;";
-$SalesSumTotal=$server->query($MonthlySum);
+$SalesSumTotal=mysqli_query($server, $MonthlySum);
 echo "<script> 
 let phparray= [];
 </script> 
@@ -63,9 +64,7 @@ while($rowInvoice = mysqli_fetch_array($salesTotal)){
                 <div class="card-body">
                     <h5 class="card-title">Tech Commission YTD</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Total Amount Paid to Tech</h6>
-                    <p class="card-text"><?php
-                    $commission=number_format((double)$Total*(double)280.8);
-                    echo"<h1>\$".$commission." </h1>";
+                    <p class="card-text"><?php while($row = mysqli_fetch_array($MontTotalCount)){echo"<h1>\$".$row[0]." </h1>";}
  ?></p>
                 </div>
                 
