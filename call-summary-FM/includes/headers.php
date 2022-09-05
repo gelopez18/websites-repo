@@ -8,37 +8,7 @@
     <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
     <title>Fire Master Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </head>
   <body class="p-3 m-0 border-0 bd-example">
     <nav class="navbar bg-light fixed-top">
@@ -55,7 +25,7 @@
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Invoice Total Input</a>
+                <a class="nav-link active" aria-current="page" href="invoiceInput.php">Invoice Total Input</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="usr.php">USR Input</a>
@@ -69,7 +39,7 @@
 
                   <li><a class="dropdown-item"  href="SSQuery.php" >Sales Summary</a></form></li>
                  <li><a class="dropdown-item" href="USRQuery.php">USR Report</a></li>
-                 <li><a class="dropdown-item" href="Dashboard.php">Dashboard Report</a></li>
+                 <li><a class="dropdown-item" href="index.php">Dashboard Report</a></li>
                 </ul>
               </li>
               
