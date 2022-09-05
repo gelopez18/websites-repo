@@ -32,7 +32,7 @@ echo "
 </script>";
 
 ?>
-<div class="container text-center">
+<div class="container text-center row">
     <div class="row">
         <div class="col-4 col-sm-12 col-md-4">
             <div class="card" style="width: 18rem;">
@@ -62,9 +62,9 @@ while($rowInvoice = mysqli_fetch_array($salesTotal)){
     <br>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Tech Commission YTD</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Total Amount Paid to Tech</h6>
-                    <p class="card-text"><?php while($row = mysqli_fetch_array($MontTotalCount)){echo"<h1>\$".$row[0]." </h1>";}
+                    <h5 class="card-title">Total Invoices YTD</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Amount invoices billed</h6>
+                    <p class="card-text"><?php while($row = mysqli_fetch_array($MontTotalCount)){echo"<h1>".$row[0]." </h1>";}
  ?></p>
                 </div>
                 
@@ -99,12 +99,32 @@ while($rowInvoice = mysqli_fetch_array($salesTotal)){
       };
     </script>
             <div id="top_x_div" style="width: 800px; height: 600px;"></div>
+            
 
+  
         </div> 
     </div>
   </div>
+  <br>
+  <div class="  row">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <script type="text/javascript">
+          //invoice per city  and total per
+          google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable();
 
-<?php
+            var options = {
+              title: 'My Daily Activities',
+              is3D: true,
+            };
 
-
-?>
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+          }
+        </script>
+    </div>
+  </div> 
+  <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
