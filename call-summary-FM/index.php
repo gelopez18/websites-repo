@@ -71,7 +71,7 @@ echo "
                         var data = new google.visualization.arrayToDataTable(sortedPHParray);
 
                         var options = {
-                          width: 1100,
+                          width: 1000,
                           legend: { position: 'none' },
                           chart: {
                             title: 'Franchise Performance',
@@ -95,7 +95,7 @@ echo "
     <br>
     <div class="row">
       <div class="col-4 col-sm-12 col-md-4">
-              <div class="card" style="width: 25rem;">
+              <div class="card" style="width: 20rem;">
                 <div class="card-body">
                     <h5 class="card-title"> City Sales</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Total amount of Sales per City</h6>
