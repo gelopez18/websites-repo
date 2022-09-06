@@ -9,6 +9,12 @@
     <title>Fire Master Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    google.charts.load('43', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    ...
+</script>
   </head>
   <body class="p-3 m-0 border-0 bd-example">
     <nav class="navbar bg-light fixed-top">
