@@ -5,7 +5,7 @@ require_once './includes/headers.php';
 <form class = container method="POST" action="USRQY.php" >
 <div class="card ">
   <div class="card-header">
-    USR Requesting
+    <h5>USR Requesting</h5>
   </div>
   <div class="card-body">
   <label for="exampleInputEmail1" class="form-label">Week number address</label>
@@ -23,9 +23,11 @@ require_once './includes/headers.php';
     <label class="form-check-label" for="flexRadioDefault2">
         Core
     </label>
-    </div>
+    </div><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div> 
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+ 
   </div>
 </div>
 
