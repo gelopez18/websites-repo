@@ -14,6 +14,7 @@ $SalesSumTotal=mysqli_query($server, $MonthlySum);
 
 $citySales = "SELECT city, sum(total) FROM salessummaries WHERE  year='$date[year]' GROUP BY city;";
 $citySalesQy=mysqli_query($server, $citySales);
+
 echo "<script> let CitysalesArray=[]; let phparray= [];</script>";
     while($row=mysqli_fetch_array($SalesSumTotal)){
         $array=array($row[0], $row[1]); 

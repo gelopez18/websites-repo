@@ -3,8 +3,29 @@ require_once './includes/headers.php';
 require_once './includes/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-
+    $SRO=$_POST['SRO'];
+    $Type1=$_POST['Type1'];
+    $Type2=$_POST['Type2'];
+    $Type3=$_POST['Type3'];
+    $Type4=$_POST['Type4'];
+    $weight1=$_POST['weight1'];
+    $weight2=$_POST['weight2'];
+    $weight3=$_POST['weight3'];
+    $weight4=$_POST['weight4'];
+    $Qty1=$_POST['Qty1'];
+    $Qty2=$_POST['Qty2'];
+    $Qty3=$_POST['Qty3'];
+    $Qty4=$_POST['Qty4'];
 }
+$saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3,Qty4) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4');";
+
+if (mysqli_query($server, $saveFESales)){
+    echo "<script>alert('FE Saved Succesfully');</script>";
+} else {
+    echo"<script>alert(<h1>Invoice Not saved</h1>);</script>"
+    . mysqli_error($server);
+}
+mysqli_close($server);
 ?>
 
 <form class = container method="POST" action="FESales.php" >

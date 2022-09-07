@@ -33,11 +33,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         echo"<h1>Invoice Not saved</h1><br>"
         . mysqli_error($server);
     }
-mysqli_close($server);
+    $wkCount="SELECT count(SRO) FROM salessummaries WHERE wkNumb='84';";
+  $countQuery= mysqli_query($server, $wkCount);
+
 }
+
+  
 include_once './includes/headers.php';
 ?> 
-<form class="card-body container" method="POST" action="index.php"><h1>Invoice Details</h1><hr class="undefined">
+<form class="card-body container" method="POST" action="invoiceInput.php"><h1>Invoice Details</h1><hr class="undefined">
     <div class='row row-cols-auto'>
     <div class="col"></div>
       <div class="col"></div>
@@ -1864,10 +1868,53 @@ include_once './includes/headers.php';
         <label for="formGroupExampleInput" class="form-label">Total Before Taxes</label>
         <input type="text" name="total" class="form-control " id="total" placeholder="Total Before Taxes">
 </div>
-<hr class="undefined"><button type="submit" class="btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4">
-          Add
-        </button><button type="" class="btn btn-link btn-lg col-lg-4 col-md-4 col-sm-4">
-          
+<button type="submit" class="btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4">Add</button>
 </form>
+<br>
+  <div class="container">
+  <h3>Details</h3>
+  <hr>
+    <div class="row">
+      <div class="col-4 col-sm-12 col-md-4">
+              <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                      <h5 class="card-title"> Week Count</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Total amount of invoices this Week</h6>
+                      <p class="card-text center"><?php 
+                          try{ini_set('display_errors','Off'); $wkCount="SELECT count(SRO) FROM salessummaries WHERE wkNumb='$wkNumb';";
+                          $countQuery= mysqli_query($server, $wkCount);
+                        }
+                          catch( Exception $e){ echo"";
+                          }
+                          finally{
+                            while($row=mysqli_fetch_array($countQuery)){echo "<h1>".$row[0]."</h1>";}
+                          
+                          }
+                          ?>
+
+                  </div>
+                </div>
+      </div>
+        <div class="col-4 col-sm-12 col-md-4">
+        <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                      <h5 class="card-title"> Week Total</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Total amount for this Week</h6>
+                      <p class="card-text center"><?php 
+                          try{ini_set('display_errors','Off'); $wkSum="SELECT sum(total) FROM salessummaries WHERE wkNumb='$wkNumb';";
+                          $SumQuery= mysqli_query($server, $wkSum);
+                        }
+                          catch( Exception $e){ echo"";
+                          }
+                          finally{
+                            while($row=mysqli_fetch_array($SumQuery)){echo "<h1>\$".number_format($row[0])."</h1>";}
+                          
+                          }mysqli_close($server);
+                          ?>
+                  </div>
+          </div>
+        </div>                    
+    </div>
     </body>
+    
   </html>
