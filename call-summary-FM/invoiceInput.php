@@ -1876,7 +1876,7 @@ include_once './includes/headers.php';
   <hr>
     <div class="row">
       <div class="col-4  col-md-4  col-sm-12">
-              <div class="card" style="width: 18rem;">
+              <div class="card" style="width: 20rem; height: 12rem;">
                   <div class="card-body">
                       <h5 class="card-title"> Week Count</h5>
                       <h6 class="card-subtitle mb-2 text-muted">Total amount of invoices this Week</h6>
@@ -1896,7 +1896,7 @@ include_once './includes/headers.php';
                 </div>
       </div>
         <div class="col-4  col-md-4  col-sm-12">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 20rem; height: 12rem;">
                   <div class="card-body">
                       <h5 class="card-title"> Week Total</h5>
                       <h6 class="card-subtitle mb-2 text-muted">Total amount for this Week</h6>
@@ -1915,19 +1915,24 @@ include_once './includes/headers.php';
           </div>
           
         </div>  
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 20rem; height: 12rem;">
                   <div class="card-body">
-                      <h5 class="card-title"> Travel Rate Total</h5>
-                      <h6 class="card-subtitle mb-2 text-muted">Total TR reported this Week</h6>
+                      <h5 class="card-title">Total National and Core Acct</h5>
+                      <h6 class="card-subtitle mb-2 text-muted"></h6>
                       <p class="card-text center"><?php 
-                          try{ini_set('display_errors','Off'); $wkTRcount="SELECT count(OverRide) FROM salessummaries WHERE wkNumb='$wkNumb' AND OverRide='TR';";
-                          $TRCountQuery= mysqli_query($server, $wkTRcount);
+                          try{ini_set('display_errors','Off'); 
+                            $wkCoreCount="SELECT count(clientClass) FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='C';";
+                            $wkNatCount="SELECT count(clientClass) FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='N';";
+                          $CoreCountQuery= mysqli_query($server, $wkCoreCount);
+                          $wkNatCountQuery= mysqli_query($server, $wkNatCount);
                         }
                           catch( Exception $e){ echo"";
                           }
                           finally{
-                            while($row=mysqli_fetch_array($TRCountQuery)){echo "<h1>".$row[0]."</h1>";}
-                          
+                            echo "<table class='table'><thead><tr><th><h6>Core</h6></th><th><h6>Nationals</h6></th></tr></thead><tbody><tr>";
+                            while($row=mysqli_fetch_array($CoreCountQuery)){echo "<td><h1>".$row[0]."</h1></td>";}
+                            while($row2=mysqli_fetch_array($wkNatCountQuery)){echo "<td><h1>".$row2[0]."</h1></td>";
+                            }echo "</tr></tbody></table>";
                           }mysqli_close($server);
                           ?>
                   </div>
