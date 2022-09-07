@@ -6,13 +6,13 @@ $date=getdate(date("U"));
 $Sumsales="SELECT sum(total) FROM salessummaries WHERE year='$date[year]';";
 $salesTotal=mysqli_query($server, $Sumsales);
 
-$MonthlyCount = "SELECT count(SRO) FROM salessummaries WHERE year='$date[year]';";
+$MonthlyCount = "SELECT sum(total) FROM salessummaries WHERE year='$date[year]' AND OverRide='TR';";
 $MontTotalCount = mysqli_query($server, $MonthlyCount);
 
 $MonthlySum = "SELECT month, sum(total) FROM salessummaries WHERE year='$date[year]' GROUP BY month;";
 $SalesSumTotal=mysqli_query($server, $MonthlySum);
 
-$citySales = "SELECT city, sum(total) FROM salessummaries WHERE  year='$date[year]' GROUP BY city;";
+$citySales = "SELECT city, sum(total) FROM salessummaries WHERE  year='$date[year]' GROUP BY city ORDER BY 'total' DESC LIMIT 10;";
 $citySalesQy=mysqli_query($server, $citySales);
 
 echo "<script> let CitysalesArray=[]; let phparray= [];</script>";
@@ -27,7 +27,6 @@ echo "
      
      const sortedPHParray = phparray.sort((a, b)=>{return a[1] - b[1];})
      sortedPHParray.unshift(['Month', 'Total']);
-     
     console.log(sortedPHParray);
     
 </script>";
@@ -56,9 +55,11 @@ echo "
     <br>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Total Invoices YTD</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Amount invoices billed</h6>
-                    <p class="card-text"><?php while($row = mysqli_fetch_array($MontTotalCount)){echo"<h1>".$row[0]." </h1>";}?></p>
+                    <h5 class="card-title">Total TR Paid YTD</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Amount of TR paid</h6>
+                    <p class="card-text"><?php while($row = mysqli_fetch_array($MontTotalCount)){
+                      $TR=number_format((double)$row[0]*(double).1);
+                      echo"<h1>\$".$TR." </h1>";}?></p>
                 </div>  
             </div>
 
@@ -79,7 +80,7 @@ echo "
                             subtitle: 'Sales Per Month' },
                           axes: {
                             x: {
-                              0: { side: 'top', label: 'Months'} // Top x-axis.
+                              0: { side: 'bottom', label: 'Months'} // Top x-axis.
                             }
                           },
                           bar: { groupWidth: "90%" }
@@ -121,40 +122,43 @@ echo "
                     </tbody>
                     </table>
                     <script> 
-                    
                     const sortedCitysalesArray=CitysalesArray.sort((a, b)=>{return a[1] - b[1];});
                     sortedCitysalesArray.unshift(['City', 'Total']);
-                    console.log(sortedCitysalesArray);
+                    console.log(CitysalesArray);
                     </script>
                     ";?>
                 </div>
-              </div>              
+              </div>
+            
       </div>
       <div class="col-8 col-sm-12 col-md-8">
-      <script type="text/javascript">
+
+    <script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Los Angeles',     11],
-          ['Burbank',      2],
-          ['Glendale',  2],
-          ['Santa Clarita', 2],
-          ['Valencia',    7]
+          ['Santa Clarita*', 13690],
+          [CitysalesArray[2][0], CitysalesArray[2][1]],
+          ['Burbank',     27091],
+          ['Commute',  2]
+          
+
         ]);
 
         var options = {
           title: 'My Daily Activities',
-          pieHole: 0.4,
+          pieHole: 0.4
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart.draw(data, options);
       }
     </script>
-          <div id="donutchart" style="width: 900px; height: 500px;"></div>
+       <div id="donutchart" style="width: 1000px; height: 600px;"></div>
       </div>
     </div>
   </div>
+
   
