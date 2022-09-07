@@ -1875,7 +1875,7 @@ include_once './includes/headers.php';
   <h3>Details</h3>
   <hr>
     <div class="row">
-      <div class="col-4 col-sm-12 col-md-4">
+      <div class="col-4  col-md-4  col-sm-12">
               <div class="card" style="width: 18rem;">
                   <div class="card-body">
                       <h5 class="card-title"> Week Count</h5>
@@ -1895,7 +1895,7 @@ include_once './includes/headers.php';
                   </div>
                 </div>
       </div>
-        <div class="col-4 col-sm-12 col-md-4">
+        <div class="col-4  col-md-4  col-sm-12">
         <div class="card" style="width: 18rem;">
                   <div class="card-body">
                       <h5 class="card-title"> Week Total</h5>
@@ -1909,11 +1909,29 @@ include_once './includes/headers.php';
                           finally{
                             while($row=mysqli_fetch_array($SumQuery)){echo "<h1>\$".number_format($row[0])."</h1>";}
                           
-                          }mysqli_close($server);
+                          }
                           ?>
                   </div>
           </div>
-        </div>                    
+          
+        </div>  
+        <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                      <h5 class="card-title"> Travel Rate Total</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Total TR reported this Week</h6>
+                      <p class="card-text center"><?php 
+                          try{ini_set('display_errors','Off'); $wkTRcount="SELECT count(OverRide) FROM salessummaries WHERE wkNumb='$wkNumb' AND OverRide='TR';";
+                          $TRCountQuery= mysqli_query($server, $wkTRcount);
+                        }
+                          catch( Exception $e){ echo"";
+                          }
+                          finally{
+                            while($row=mysqli_fetch_array($TRCountQuery)){echo "<h1>".$row[0]."</h1>";}
+                          
+                          }mysqli_close($server);
+                          ?>
+                  </div>
+          </div>                  
     </div>
     </body>
     
