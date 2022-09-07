@@ -138,17 +138,21 @@ echo "
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
+          ['City', 'Total'],
           ['Santa Clarita*', 13690],
-          [CitysalesArray[2][0], CitysalesArray[2][1]],
-          ['Burbank',     27091],
-          ['Commute',  2]
-          
-
-        ]);
+          ['North Hollywood (Los Angeles*)', 391],
+          ['Sun Valley (Los Angeles*)', 9523],
+          ['Canyon Country (Santa Clarita*)', 7980],
+          ['Burbank*', 27091],
+          ['Valencia (Santa Clarita*)', 10842],
+          ['Sylmar (Los Angeles*)', 8548],
+          ['Newhall (Santa Clarita*)', 4075],
+          ['Los Angeles', 174],
+          ['San Fernando*', 2068]
+        ]/*CitysalesArray*/);
 
         var options = {
-          title: 'My Daily Activities',
+          title: 'City\'s Total Analysis',
           pieHole: 0.4
         };
 
@@ -156,7 +160,7 @@ echo "
         chart.draw(data, options);
       }
     </script>
-       <div id="donutchart" style="width: 1000px; height: 600px;"></div>
+       <div id="donutchart" style="width: 1200px; height: 800px;"></div>
       </div>
     </div>
   </div>
