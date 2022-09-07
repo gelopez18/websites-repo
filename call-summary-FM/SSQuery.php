@@ -23,7 +23,7 @@ require_once './includes/headers.php';
           Core
       </label>
     </div><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
   </div>  
   </div>
  
