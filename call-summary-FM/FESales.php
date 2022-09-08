@@ -17,10 +17,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $Qty2=$_POST['Qty2'];
     $Qty3=$_POST['Qty3'];
     $Qty4=$_POST['Qty4'];
+    $item1=$_POST['item1'];
+    $item2=$_POST['item2'];
+    $item3=$_POST['item3'];
+    $OtherQty1=$_POST['OtherQty1'];
+    $OtherQty2=$_POST['OtherQty2'];
+    $OtherQty3=$_POST['OtherQty3'];
 
-
-
-    $saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3,Qty4) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4');";
+    $saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3, Qty4, item1, item2, item3, OtherQty1, OtherQty2, OtherQty3) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4', '$item1', '$item2', '$item3', '$OtherQty1', '$OtherQty2, '$OtherQty3');";
 
 if (mysqli_query($server, $saveFESales)){
     echo "<script>alert('FE Saved Succesfully');</script>";
