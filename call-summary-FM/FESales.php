@@ -181,10 +181,37 @@ mysqli_close($server);
                 </div>
             </div>
             
-    </div>
+    </div><br><h5>Fire Extinguisher Details</h5><br>
+    <div class="row">
+        <div class="col">
+            <label for="exampleInputEmail1" class="form-label">Other Material</label>   
+            <input type="text" class="form-control" id="wkNumb" name="item1" placeholder="Item" aria-describedby="emailHelp" >
+        </div>
+        <div class="col">
+            <label for="exampleInputEmail1" class="form-label">Qty</label>   
+            <input type="text" class="form-control" id="wkNumb" name="OtherQty1" placeholder="0" aria-describedby="emailHelp" ><br>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" id="wkNumb" name="item2" placeholder="Item" aria-describedby="emailHelp" ><br>
+        </div>
+        <div class="col">
+  
+            <input type="text" class="form-control" id="wkNumb" name="OtherQty2" placeholder="0" aria-describedby="emailHelp" ><br>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" id="wkNumb" name="item3" placeholder="Item" aria-describedby="emailHelp" >
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" id="wkNumb" name="OtherQty3" placeholder="0" aria-describedby="emailHelp" ><br>
+        </div>
+    </div>       
   </div>
   <br>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary btn-lg">Submit</button>
   </div>
 </div>
 
