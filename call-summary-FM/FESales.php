@@ -17,7 +17,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $Qty2=$_POST['Qty2'];
     $Qty3=$_POST['Qty3'];
     $Qty4=$_POST['Qty4'];
-    
+
+
+
     $saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3,Qty4) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4');";
 
 if (mysqli_query($server, $saveFESales)){
@@ -39,7 +41,7 @@ mysqli_close($server);
   </div>
   <div class="card-body">
     <label for="exampleInputEmail1" class="form-label">SRO</label>
-    <input type="text" class="form-control" id="wkNumb" name="sro" aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="wkNumb" name="SRO" aria-describedby="emailHelp">
 </div>
 <hr>
 <div class="mb-3 form-check">
@@ -79,7 +81,7 @@ mysqli_close($server);
                 </div>
                 <div class="col">
                     <label for="exampleInputEmail1" class="form-label">Qty</label>
-                    <input type="text" class="form-control" id="wkNumb" name="Qty1" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="wkNumb" name="Qty1" placeholder="0" aria-describedby="emailHelp">
                 </div>
             </div>
             <br>
@@ -110,7 +112,7 @@ mysqli_close($server);
                 </div>
                 <div class="col">
 
-                    <input type="text" class="form-control" id="wkNumb" name="Qty2" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="wkNumb" name="Qty2" placeholder="0" aria-describedby="emailHelp">
                 </div>
             </div>
             <br>
@@ -143,7 +145,7 @@ mysqli_close($server);
                 </div>
                 <div class="col">
 
-                    <input type="text" class="form-control" id="wkNumb" name="Qty" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" id="wkNumb" name="Qty3" placeholder="0" aria-describedby="emailHelp">
                 </div>
             </div>
             <br>
@@ -162,7 +164,7 @@ mysqli_close($server);
                     </div>
                 <div class="col">
      
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="weight4">
                             <option selected="selected">Choose one</option>
                                 <?php
                                
@@ -175,7 +177,7 @@ mysqli_close($server);
                 </div>
                 <div class="col">
 
-                    <input type="text" class="form-control" id="wkNumb" name="sro" aria-describedby="emailHelp" >
+                    <input type="text" class="form-control" id="wkNumb" name="Qty4" placeholder="0" aria-describedby="emailHelp" >
                 </div>
             </div>
             
