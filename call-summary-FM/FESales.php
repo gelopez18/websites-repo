@@ -48,13 +48,13 @@ mysqli_close($server);
         <div class=col>
             <div class="card-body">
                 <label for="exampleInputEmail1" class="form-label">SRO</label>
-                <input type="text" class="form-control" id="SRO" name="SRO" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="SRO" name="SRO">
             </div>
         </div>
         <div class=col>
             <div class="card-body">
                 <label for="exampleInputEmail1" class="form-label">Week Number</label>
-                <input type="text" class="form-control" id="wkNumb" name="wkNumb" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="wkNumb" name="wkNumb" >
             </div>
         </div>
 </div>
@@ -74,7 +74,7 @@ mysqli_close($server);
                                 
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
@@ -89,26 +89,26 @@ mysqli_close($server);
                                 
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
                 </div>
                 <div class="col">
                     <label for="exampleInputEmail1" class="form-label">Qty</label>
-                    <input type="text" class="form-control" id="wkNumb" name="Qty1" placeholder="0" aria-describedby="emailHelp" value=0>
+                    <input type="text" class="form-control" id="wkNumb" name="Qty1" placeholder="0"  value=0>
                 </div>
             </div>
             <br>
             <div class="row">
                     <div class="col">
 
-                        <select class="form-select" aria-label="Default select example" name="Type2">
+                        <select class="form-select"  name="Type2">
                             <option selected="selected">Choose one</option>
                                 <?php
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
@@ -120,7 +120,7 @@ mysqli_close($server);
                                 <?php
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
@@ -140,7 +140,7 @@ mysqli_close($server);
                                 
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
@@ -153,7 +153,7 @@ mysqli_close($server);
                                
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
@@ -172,7 +172,7 @@ mysqli_close($server);
                                 <?php
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
@@ -185,7 +185,7 @@ mysqli_close($server);
                                
                                 // Iterating through the product array
                                 foreach($products as $item){
-                                    echo "<option value='strtolower($item)'>$item</option>";
+                                    echo "<option value='$item'>$item</option>";
                                 }
                                 ?>
                         </select>
