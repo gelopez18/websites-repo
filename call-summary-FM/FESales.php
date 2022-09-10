@@ -40,12 +40,22 @@ mysqli_close($server);
 
 <form class = container method="POST" action="FESales.php" >
 <div class="card ">
-  <div class="card-header">
-  <h3>Fire Extinguisher Sales</h3>
-  </div>
-  <div class="card-body">
-    <label for="exampleInputEmail1" class="form-label">SRO</label>
-    <input type="text" class="form-control" id="wkNumb" name="SRO" aria-describedby="emailHelp">
+    <div class=row>
+        <div class="card-header">
+            <h3>Fire Extinguisher Sales</h3>
+        </div>
+        <div class=col>
+            <div class="card-body">
+                <label for="exampleInputEmail1" class="form-label">SRO</label>
+                <input type="text" class="form-control" id="wkNumb" name="SRO" aria-describedby="emailHelp">
+            </div>
+        </div>
+        <div class=col>
+            <div class="card-body">
+                <label for="exampleInputEmail1" class="form-label">Week Number</label>
+                <input type="text" class="form-control" id="wkNumb" name="SRO" aria-describedby="emailHelp">
+            </div>
+        </div>
 </div>
 <hr>
 <div class="mb-3 form-check">
