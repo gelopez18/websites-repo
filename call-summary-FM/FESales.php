@@ -85,11 +85,11 @@ mysqli_close($server);
                             <option selected="selected">Choose one</option>
                                 <?php
                                 // A sample product array
-                                $products = array("2.5", "5", "6", "9","10", "13", "15", "17", "20", "30", "150");
+                                $weightValues = array("2.5", "5", "6", "9","10", "13", "15", "17", "20", "30", "150");
                                 
                                 // Iterating through the product array
-                                foreach($products as $item){
-                                    echo "<option value='$item'>$item</option>";
+                                foreach($weightValues as $weight){
+                                    echo "<option value='$weight'>$weight</option>";
                                 }
                                 ?>
                         </select>
@@ -119,8 +119,8 @@ mysqli_close($server);
                             <option selected="selected">Choose one</option>
                                 <?php
                                 // Iterating through the product array
-                                foreach($products as $item){
-                                    echo "<option value='$item'>$item</option>";
+                                foreach($weightValues as $weight){
+                                    echo "<option value='$weight'>$weight</option>";
                                 }
                                 ?>
                         </select>
@@ -152,8 +152,8 @@ mysqli_close($server);
                                 <?php
                                
                                 // Iterating through the product array
-                                foreach($products as $item){
-                                    echo "<option value='$item'>$item</option>";
+                                foreach($weightValues as $weight){
+                                    echo "<option value='$weight'>$weight</option>";
                                 }
                                 ?>
                         </select>
@@ -184,8 +184,8 @@ mysqli_close($server);
                                 <?php
                                
                                 // Iterating through the product array
-                                foreach($products as $item){
-                                    echo "<option value='$item'>$item</option>";
+                                foreach($weightValues as $weight){
+                                    echo "<option value='$weight'>$weight</option>";
                                 }
                                 ?>
                         </select>
