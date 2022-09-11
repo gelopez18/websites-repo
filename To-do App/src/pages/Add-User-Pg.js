@@ -34,7 +34,9 @@ export class AddUser extends Page{
             showUserT.setType();
             showUserT.appendToElement(this.element);
             showUserT.element.click(()=>{
-                                
+                document.getElementById('userTable').disabled=true;
+                let UserTable = new Table('userTable', headers, UserList); 
+                UserTable.appendToElement(this.element);
             })
         let line = new Hr('border border-primary border-3 opacity-75');
             space.appendToElement(this.element);
@@ -46,8 +48,7 @@ export class AddUser extends Page{
                 newUserObj.addUserList();
                 document.getElementById('Name').value="";
                 document.getElementById('Org').value="";
-                let UserTable = new Table(headers, UserList); 
-                UserTable.appendToElement(this.element);
+
             })
             let hr = new Hr();
             hr.appendToElement(this.element);    
