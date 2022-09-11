@@ -25,9 +25,17 @@ export class AddUser extends Page{
             
 
         let svUser = new Button('Save User');
-            svUser.setStyleString('btn btn-primary btn-lg');
+            svUser.setStyleString('btn btn-success col-4 col-md-4 col-sm-3 me-4 btn-lg');
             svUser.setType('Button');
             svUser.appendToElement(this.element);
+
+        let showUserT = new Button('Show Table', 'userTable');
+            showUserT.setStyleString('btn btn-primary col-4 col-md-4 col-sm-3 me-4 btn-lg');
+            showUserT.setType();
+            showUserT.appendToElement(this.element);
+            showUserT.element.click(()=>{
+                                
+            })
         let line = new Hr('border border-primary border-3 opacity-75');
             space.appendToElement(this.element);
             line.appendToElement(this.element);    
