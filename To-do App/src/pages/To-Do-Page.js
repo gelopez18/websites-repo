@@ -69,17 +69,29 @@ export class ToDoPage extends Page{
             let recRemoveReq = prompt("Please enter the record to remove");
             console.log(list);
             console.log(recRemoveReq);
-            list.splice(1,recRemoveReq-1);
+            list.splice(0,recRemoveReq);
             console.log(list);
-            setTimeout(() => {
-              
-            }, 1000);
+            document.getElementById('ShowTable').disabled=false;           
+
           })
 
           space.appendToElement(this.element);
       let hr = new Hr('border border-primary border-3 opacity-75');
           hr.appendToElement(this.element);
           space.appendToElement(this.element);
+          /*
+      let refreshTable = new Button("Remove all Assigment", "DeleteTable");  
+          refreshTable.setStyleString('btn btn-danger me-4 btn-lg  justify-content-md-end');
+          refreshTable.appendToElement(this.element);
+          refreshTable.element.click(()=>{
+            let confirmation = confirm("are you sure you want to delete all the assigments");
+            if(confirmation=true){
+              location.reload();
+            } else{
+              
+            }
+            
+          })*/
     }
     getElementString(){
       return '<div class="container text-center"></div>'
