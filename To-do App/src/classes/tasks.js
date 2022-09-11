@@ -10,8 +10,6 @@ export class Task{
  addTaskList(){
     let name = document.getElementById("userCombo").value;
     let task =  document.getElementById("TaskInput").value;
-
-
     let date =  new Date();
     let finalDate = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()} @ ${date.getHours()}:${date.getMinutes()}`;
     let recordNumb=1; 

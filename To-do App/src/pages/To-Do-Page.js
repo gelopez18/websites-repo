@@ -38,23 +38,28 @@ export class ToDoPage extends Page{
 
           
             addTask.element.click(()=>{ 
-
+              if()
               let newObj = new Task();
-
-                newObj.addTaskList();
-              
+              newObj.addTaskList();
               document.getElementById("userCombo").value="";
               document.getElementById("TaskInput").value=""
-              let TaskTable = new Table('TaskTable',headers, list);
-              TaskTable.appendToElement(this.element);
-              
-            
             }) 
             
-      let styleStringEmpty = 'btn btn-link col-lg-4  col-md-4 col-sm-4';
-        let emtybtn = new Button("");
-          emtybtn.setStyleString(styleStringEmpty);
-          emtybtn.appendToElement(this.element);
+      let styleStringEmpty = 'btn btn-primary col-lg-4  col-md-4 col-sm-4 btn-lg';
+        let ShowTable = new Button("Show Table");
+        ShowTable.setStyleString(styleStringEmpty);
+        ShowTable.appendToElement(this.element);
+          ShowTable.element.click(()=>{
+              console.log(list);
+              if(list.length<=0){
+                alert('Missing Data in Task Table, please assign a task.');
+              } else{
+                document.getElementsByTagName('table').innerHTML="";
+                let TaskTable = new Table('TaskTable', headers, list);
+                TaskTable.appendToElement(this.element);
+              }
+            })
+
       let styleStringRemove = 'btn btn-danger btn-lg col-lg-4 col-md-4 col-sm-4';
         let removeTask = new Button("Remove Task");      
           removeTask.setStyleString(styleStringRemove);
@@ -71,12 +76,6 @@ export class ToDoPage extends Page{
       let hr = new Hr('border border-primary border-3 opacity-75');
           hr.appendToElement(this.element);
           space.appendToElement(this.element);
-
-
-          //testing to see if we can delete the table 
-          let TaskTable = new Table('TaskTable',headers, list);
-          TaskTable.appendToElement(this.element);
-          
     }
     getElementString(){
       return '<div class="container text-center"></div>'
