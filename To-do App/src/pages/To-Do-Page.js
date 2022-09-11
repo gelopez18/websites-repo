@@ -29,24 +29,24 @@ export class ToDoPage extends Page{
           userCombo.appendToElement(this.element);
         
           space.appendToElement(this.element);
-        let addTask = new Button("Add Task");
-        let styleStringAdd = 'btn btn-success btn-lg col-lg-4 col-md-4 col-sm-4';
+        let addTask = new Button("Add Task", "addTask");
+        let styleStringAdd = 'btn btn-success col-4 col-md-4 col-sm-3 me-4 btn-lg';
+
           addTask.setStyleString(styleStringAdd);
           addTask.setType('su')
           addTask.appendToElement(this.element);
-          
 
-          
             addTask.element.click(()=>{ 
-              if()
+
               let newObj = new Task();
               newObj.addTaskList();
               document.getElementById("userCombo").value="";
-              document.getElementById("TaskInput").value=""
+              document.getElementById("TaskInput").value="";
+
             }) 
             
-      let styleStringEmpty = 'btn btn-primary col-lg-4  col-md-4 col-sm-4 btn-lg';
-        let ShowTable = new Button("Show Table");
+      let styleStringEmpty = 'btn btn-primary me-4 btn-lg';
+        let ShowTable = new Button("Show Table", "ShowTable");
         ShowTable.setStyleString(styleStringEmpty);
         ShowTable.appendToElement(this.element);
           ShowTable.element.click(()=>{
@@ -54,22 +54,19 @@ export class ToDoPage extends Page{
               if(list.length<=0){
                 alert('Missing Data in Task Table, please assign a task.');
               } else{
-                document.getElementsByTagName('table').innerHTML="";
+                document.getElementById('ShowTable').disabled=true;
                 let TaskTable = new Table('TaskTable', headers, list);
-                TaskTable.appendToElement(this.element);
+                TaskTable.appendToElement(this.element); 
               }
             })
-
-      let styleStringRemove = 'btn btn-danger btn-lg col-lg-4 col-md-4 col-sm-4';
-        let removeTask = new Button("Remove Task");      
+      let styleStringRemove = 'btn btn-danger col-4 col-md-4 col-sm-3 me-4 btn-lg';
+        let removeTask = new Button("Remove Task", "removeTask");      
           removeTask.setStyleString(styleStringRemove);
           removeTask.appendToElement(this.element);
           let table = document.getElementsByTagName('table').innerHTML;
           //testing to see if we can delete the table 
           removeTask.element.click(()=>{
-            
             console.log(table);
-
           })
 
           space.appendToElement(this.element);
