@@ -34,6 +34,9 @@ export class AddUser extends Page{
             showUserT.setType();
             showUserT.appendToElement(this.element);
             showUserT.element.click(()=>{
+                if(UserList.length<=0){
+                    alert('Missing user Data in user Table, please enter an user.');
+                }
                 document.getElementById('userTable').disabled=true;
                 let UserTable = new Table('userTable', headers, UserList); 
                 UserTable.appendToElement(this.element);
