@@ -66,7 +66,14 @@ export class ToDoPage extends Page{
           let table = document.getElementsByTagName('table').innerHTML;
           //testing to see if we can delete the table 
           removeTask.element.click(()=>{
-            console.log(table);
+            let recRemoveReq = prompt("Please enter the record to remove");
+            console.log(list);
+            console.log(recRemoveReq);
+            list.splice(1,recRemoveReq-1);
+            console.log(list);
+            setTimeout(() => {
+              
+            }, 1000);
           })
 
           space.appendToElement(this.element);
