@@ -63,7 +63,7 @@ export class ToDoPage extends Page{
         let removeTask = new Button("Remove Task", "removeTask");      
           removeTask.setStyleString(styleStringRemove);
           removeTask.appendToElement(this.element);
-          let table = document.getElementsByTagName('table').innerHTML;
+
           //testing to see if we can delete the table 
           removeTask.element.click(()=>{
             let recRemoveReq = prompt("Please enter the record to remove");
@@ -71,8 +71,7 @@ export class ToDoPage extends Page{
             console.log(recRemoveReq);
             list.splice(0,recRemoveReq);
             console.log(list);
-            document.getElementById('ShowTable').disabled=false;           
-
+            document.getElementById('ShowTable').disabled=false;      
           })
 
           space.appendToElement(this.element);

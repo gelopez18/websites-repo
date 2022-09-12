@@ -1,4 +1,6 @@
 import { navBar } from "../UI/nav-bar.js";
+let express = require('express');
+let app = express();
 
 export default class applicationBase{
     constructor(title){
