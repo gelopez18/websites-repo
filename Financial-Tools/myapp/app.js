@@ -12,7 +12,7 @@ const usersRouter = require('./routes/users');
 const app = express(); //>then we call the constructor for the variable and name it app which is an instance *E(index comment)
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views')); // we call methods to modify the application the 'views' are include  in the dir call 'views'
+app.set('views', path.join(__dirname, 'views')); // we call methods to modify the application the 'views' are include  in the dir call 'views' *V(index comment)
 app.set('view engine', 'pug'); // we've install pug as view engine npm install express generator -g then express --view=pug myapp
 
 app.use(logger('dev'));
