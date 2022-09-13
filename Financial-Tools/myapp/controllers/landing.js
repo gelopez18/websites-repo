@@ -2,8 +2,8 @@
 
 //the controllers helps us seperate handelers logic 
 
-exports.index= function(req, res, next) { //this makes a call to a http method get
-    res.render('index', { title: 'Express' });//handeler for  routes
+exports.get_landing= function(req, res, next) { //this makes a call to a http method get
+    res.render('landing', { title: 'Express' });//handeler for  routes
   }
   
 //index value reders the index file under the views because on app.js under app.set we call methods to modify the application the 'views' are include  in the dir call 'views' *V(index comment)
