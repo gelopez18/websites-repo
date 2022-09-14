@@ -33,6 +33,7 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="invoiceInput.php">Invoice Total Input</a>
               </li>
+              
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="usr.php">USR Input</a>
               </li>
@@ -48,7 +49,14 @@
                  <li><a class="dropdown-item" href="index.php">Dashboard Report</a></li>
                 </ul>
               </li>
-              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">Modifications</a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+
+                  <li><a class="dropdown-item"  href="modifyUSR.php" >Modify USR</a></form></li>
+                 <li><a class="dropdown-item" href="modifySS.php">Modify Sales Summaries</a></li>
+                </ul>
+              </li>
 
             </ul>
 
