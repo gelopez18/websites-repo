@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $value_to_update=$_POST['ModifyField'];
     $value=$_POST['value'];
 
-    $updateQuery = "UPDATE salessummaries SET  $value_to_update=$value WHERE SRO='$SRO';";
+    $updateQuery = "UPDATE usr SET  $value_to_update=$value WHERE SRO='$SRO';";
 
     if(mysqli_query($server, $updateQuery)){
         echo "<script>alert('Invoice update Succesfully');</script>";
@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
 ?>
-<form class="card-body container" method="POST" action="modifySS.php"><h1>Sales Input Modification</h1><hr class="undefined">
+<form class="card-body container" method="POST" action="modifySS.php"><h1>USR Input Modification</h1><hr class="undefined">
 <label for="exampleInputEmail1" class="form-label"><h5>SRO</h5></label>
 
     <input type="text" class="form-control" id="SRO" name="SRO"><br>
