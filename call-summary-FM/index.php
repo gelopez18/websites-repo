@@ -137,7 +137,7 @@ echo "
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
+        var data = google.visualization.arrayToDataTable([CitysalesArray/*
           ['City', 'Total'],
           ['Santa Clarita*', 13690],
           ['North Hollywood (Los Angeles*)', 391],
@@ -149,7 +149,7 @@ echo "
           ['Newhall (Santa Clarita*)', 4075],
           ['Los Angeles', 174],
           ['San Fernando*', 2068]
-        ]/*CitysalesArray*/);
+        */]/*CitysalesArray*/);
 
         var options = {
           title: 'City\'s Total Analysis',

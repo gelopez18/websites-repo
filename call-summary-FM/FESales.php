@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/includes/connectDB.php';
 require_once './includes/headers.php';
 
@@ -24,8 +23,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $OtherQty2=$_POST['OtherQty2'];
     $OtherQty3=$_POST['OtherQty3'];
     $wkNumb=$_POST['wkNumb'];
+    $date=date('Y-m-d');
 
-    $saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3, Qty4, item1, item2, item3, OtherQty1, OtherQty2, OtherQty3, wkNumb) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4', '$item1', '$item2', '$item3', '$OtherQty1', '$OtherQty2', '$OtherQty3', '$wkNumb');";
+    $saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3, Qty4, item1, item2, item3, OtherQty1, OtherQty2, OtherQty3, wkNumb, date) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4', '$item1', '$item2', '$item3', '$OtherQty1', '$OtherQty2', '$OtherQty3', '$wkNumb', '$date');";
 
 if (mysqli_query($server, $saveFESales)){
     echo "<script>alert('FE Saved Succesfully');</script>";
