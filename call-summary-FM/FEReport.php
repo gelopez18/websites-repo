@@ -5,6 +5,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $fromDate =$_POST['FromDate'];
     $toDate =$_POST['ToDate'];
 
+$query="SELECT count(weight1, weight2, weight3, weight4) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' GROUP BY Type1;";
+    $sqlQ=mysqli_query($server, $query);
+    if ($sqlQ->num_rows > 0) {
+        echo $sqlQ;
+    }
 }
 ?>
 <div class="container">
