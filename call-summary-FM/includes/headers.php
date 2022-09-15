@@ -15,6 +15,7 @@
     google.charts.setOnLoadCallback(drawChart);
     ...
 </script>
+
   </head>
   <body class="p-3 m-0 border-0 bd-example">
     <nav class="navbar bg-light fixed-top">
