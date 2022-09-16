@@ -38,10 +38,7 @@ $total = $server->query($sqlSum);
 //results
 if ($Result->num_rows > 0) {
 
-    echo "
-        <br>
-        <div class=''>
-        <div class='row'>
+    echo "<div class='row'>
         <div class='col'>
         <img class='' src='./img/Picture2.png'>
         </div>
@@ -54,7 +51,7 @@ if ($Result->num_rows > 0) {
                     </td>
                 </tr>
                 <tr>
-                    <td class=>
+                    <td >
                     <i>If summary ID number is not provided, one will be assigned to your summary. It is suggested you provide your own unique reference number for easier tracking of your work. Reference numbers will reflect on your statements, therefore avoid repeating.<i>
                     </td>
                 </tr>
@@ -81,8 +78,8 @@ if ($Result->num_rows > 0) {
         </div>
         </div>
     Class or Work C = Core, N = National, P = PMA, S = Service Contract
-        <table class='table'>
-            <tr>
+        <table class='table  table-striped'>
+            <tr class='borderCSS'>
             <th>Class</th>
             <th>SRO</th>
             <th>SRO Amount less Tax</th>
@@ -91,7 +88,7 @@ if ($Result->num_rows > 0) {
             <th>Partner ID</th>
             <th>Comm%</th>
             <th>Override Type</th>
-            <th>Override Rate</th>
+            <th>Override Rate %</th>
             <th>Mgr's Over-Ride Approval</th>
             <th>Split 1 ID</th>
             <th>*% of Total Comm</th>
@@ -101,20 +98,20 @@ if ($Result->num_rows > 0) {
     // output data of each row
 while($row = mysqli_fetch_array($result)){
     echo "<tr>
-    <td>".$row["clientClass"]."</td>
-    <td>".$row["SRO"]."</td>
-    <td >\$".$row["total"]."</td>
-    <td >".$row["client"]."</td>
-    <td>CH</td>
-    <td>FPAN004</td>
-    <td>46%</td>
-    <td>".$row["OverRide"]."</td>
-    <td>".$row["overRidePercent"]."</td>
-    <td></td>
-    <td>FDEL001</td>
-    <td>54%</td>
-    <td></td>
-    <td></td>
+    <td class='borderCSS'>".$row["clientClass"]."</td>
+    <td class='borderCSS'>".$row["SRO"]."</td>
+    <td class='borderCSS' id='centerT'>\$".$row["total"]."</td>
+    <td style='width: 25%; white-space:nowrap;' class='borderCSS'>".$row["client"]."</td>
+    <td class='borderCSS' id='centerT'>CH</td>
+    <td class='borderCSS'>FPAN004</td>
+    <td class='borderCSS'>46%</td>
+    <td class='borderCSS' id='centerT'>".$row["OverRide"]."</td>
+    <td class='borderCSS' id='centerT'>".$row["overRidePercent"]."</td>
+    <td class='borderCSS'></td>
+    <td class='borderCSS'>FDEL001</td>
+    <td class='borderCSS'>54%</td>
+    <td class='borderCSS'></td>
+    <td class='borderCSS'></td>
 </tr>"
 ;
 }echo "</table>";
@@ -133,6 +130,13 @@ while($row = mysqli_fetch_array($result)){
         #wkInfo{
             border-collapse: collapse;
         }
+        #centerT{
+            text-align: center;
+        }
+        .borderCSS{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
     </style>
   </head>
   <body>
@@ -148,7 +152,7 @@ while($row = mysqli_fetch_array($result)){
             while($row=mysqli_fetch_array($TT)){
                 array_push($Trry, $row[0]);
         }
-        echo "</table>
+        echo "</table >
     <table class='table'>
             <tr>
             <td colspan='2'>Total</td>

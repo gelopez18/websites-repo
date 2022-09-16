@@ -5,10 +5,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $fromDate =$_POST['FromDate'];
     $toDate =$_POST['ToDate'];
 
-$query="SELECT count(weight1, weight2, weight3, weight4) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' GROUP BY Type1;";
+$query="SELECT count(weight1) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' AND weight1='5' GROUP BY Type1;";
     $sqlQ=mysqli_query($server, $query);
-    if ($sqlQ->num_rows > 0) {
-        echo $sqlQ;
+    while ($row=mysqli_fetch_array($sqlQ)) {
+        echo implode($row);
     }
 }
 ?>
@@ -42,32 +42,32 @@ $query="SELECT count(weight1, weight2, weight3, weight4) FROM FETable WHERE date
         <h4>Fire Extinguisher Report from <?php echo "<b>$fromDate</b> to <b>$toDate</b></h4>"; ?><hr> 
         <table class="table table-success table-striped">
             <thead>
-                <tr>
-                    <th>Extinguisher Class</th> <th>2.5</th>    <th>5</th>  <th>6</th>  <th>9</th>  <th>10</th> <th>13</th> <th>15</th> <th>17</th> <th>20</th> <th>30</th> <th>150</th>
+                <tr style="text-align: center;">
+                    <th>Extinguisher Class</th> <th>2.5</th><th>5</th>  <th>6</th>  <th>9</th>  <th>10</th> <th>13</th> <th>15</th> <th>17</th> <th>20</th> <th>30</th> <th>150</th>
                 </tr>
-                <tr>
-                    <td>CO2</td> 
-                </tr>
-                <tr>
-                    <td>Dry Chem</td>
-                </tr>
-                <tr>
-                    <td>Clean Guard</td>
-                </tr>
-                <tr>
-                    <td>K Class</td>
-                </tr>
-                <tr>
-                    <td>D Class</td>
-                </tr>
-                <tr>
-                    <td>Water Preassure</td>
-                </tr>
-                <tr>
-                    <td>Cartridge</td>
-                </tr>              
             </thead>          
             <tbody>
+                <tr>
+                    <td>CO2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Dry Chem</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Clean Guard</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>K Class</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>D Class</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Water Preassure</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Cartridge</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
             </tbody>
         </table>
 <div>            

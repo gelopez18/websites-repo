@@ -48,6 +48,7 @@
                   <li><a class="dropdown-item"  href="SSQuery.php" >Sales Summary</a></form></li>
                  <li><a class="dropdown-item" href="USRQuery.php">USR Report</a></li>
                  <li><a class="dropdown-item" href="index.php">Dashboard Report</a></li>
+                 <li><a class="dropdown-item" href="FEReport.php">Fire Extinguishers Report</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
