@@ -5,7 +5,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $fromDate =$_POST['FromDate'];
     $toDate =$_POST['ToDate'];
 
-$query="SELECT count(weight1) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' AND weight1='5' GROUP BY Type1;";
+$query="SELECT count(weight1) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' AND weight1='2.5' AND type1='CO2' GROUP BY Type1;";
     $sqlQ=mysqli_query($server, $query);
     while ($row=mysqli_fetch_array($sqlQ)) {
         echo implode($row);
@@ -48,10 +48,40 @@ $query="SELECT count(weight1) FROM FETable WHERE date>'$fromDate' AND date<'$toD
             </thead>          
             <tbody>
                 <tr>
-                    <td>CO2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td >CO2</td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
                 </tr>
                 <tr>
-                    <td>Dry Chem</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td>Dry Chem</td>
+                    <td style="text-align: center;"></td>
+                    <td  style="text-align: center;"><?php
+                    $query="SELECT count(weight1, weight2, weight3) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' AND weight1='5' AND type1='Dry Chem' AND type2='Dry Chem' AND type3='Dry Chem';";
+                    
+                    $sqlQ=mysqli_query($server, $query);
+                    $row=mysqli_fetch_array($sqlQ);
+                    if (implode($row)>0) {
+                        echo implode($row);
+                    }else{ echo 0;}
+                    ?></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
+                    <td style="text-align: center;"></td>
                 </tr>
                 <tr>
                     <td>Clean Guard</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
