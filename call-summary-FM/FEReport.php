@@ -5,12 +5,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $fromDate =$_POST['FromDate'];
     $toDate =$_POST['ToDate'];
 
-$query="SELECT count(weight1) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' AND weight1='2.5' AND type1='CO2' GROUP BY Type1;";
-    $sqlQ=mysqli_query($server, $query);
-    while ($row=mysqli_fetch_array($sqlQ)) {
-        echo implode($row);
-    }
-}
 ?>
 <div class="container">
 <form actions='FEReport.php' method="POST">
@@ -48,40 +42,72 @@ $query="SELECT count(weight1) FROM FETable WHERE date>'$fromDate' AND date<'$toD
             </thead>          
             <tbody>
                 <tr>
-                    <td >CO2</td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
+                <?php
+                            $query="SELECT if(type='CO2',
+                            sum(CASE WHEN weight1='2.5'  AND Type1='CO2' THEN Qty1 END) AS '2.5LB', 
+                            sum(CASE WHEN weight1='5'  AND Type1='CO2' THEN Qty1 END) AS '5LB', 
+                            sum(CASE WHEN weight1='6'  AND Type1='CO2'  THEN Qty1 END) AS '6LB', 
+                            sum(CASE WHEN weight1='9'  AND Type1='CO2'  THEN Qty1 END) AS '9LB', 
+                            sum(CASE WHEN weight1='10'  AND Type1='CO2'  THEN Qty1 END) AS '10LB', 
+                            sum(CASE WHEN weight1='13'  AND Type1='CO2' THEN Qty1 END) AS '13LB', 
+                            sum(CASE WHEN weight1='15'  AND Type1='CO2'  THEN Qty1 END) AS '15LB', 
+                            sum(CASE WHEN weight1='17'  AND Type1='CO2'  THEN Qty1 END) AS '17LB', 
+                            sum(CASE WHEN weight1='20'  AND Type1='CO2'  THEN Qty1 END) AS '20LB', 
+                            sum(CASE WHEN weight1='30'  AND Type1='CO2'  THEN Qty1 END) AS '30LB', 
+                            sum(CASE WHEN weight1='150'  AND Type1='CO2' THEN Qty1 END) AS '150LB'  
+                            FROM FET1 WHERE date>'$fromDate' AND date<'$toDate';";
+                            $sqlQ=mysqli_query($server, $query);
+                            while ($row=mysqli_fetch_array($sqlQ)) {
+                                echo "
+                                <td>".$row['type1']."</td>
+                                <td style='text-align: center;'>".$row['2.5LB']."</td>
+                                <td style='text-align: center;'>".$row['5LB']."</td>
+                                <td style='text-align: center;'>".$row['6LB']."</td>
+                                <td style='text-align: center;'>".$row['9LB']."</td>
+                                <td style='text-align: center;'>".$row['10LB']."</td>
+                                <td style='text-align: center;'>".$row['13LB']."</td>
+                                <td style='text-align: center;'>".$row['15LB']."</td>
+                                <td style='text-align: center;'>".$row['20LB']."</td>
+                                <td style='text-align: center;'>".$row['30LB']."</td>
+                                <td style='text-align: center;'>".$row['150LB']."</td>
+                                ";
+                            }
+                            }
+                    ?>
                 </tr>
                 <tr>
-                    <td>Dry Chem</td>
-                    <td style="text-align: center;"></td>
-                    <td  style="text-align: center;"><?php
-                    $query="SELECT count(weight1, weight2, weight3) FROM FETable WHERE date>'$fromDate' AND date<'$toDate' AND weight1='5' AND type1='Dry Chem' AND type2='Dry Chem' AND type3='Dry Chem';";
-                    
-                    $sqlQ=mysqli_query($server, $query);
-                    $row=mysqli_fetch_array($sqlQ);
-                    if (implode($row)>0) {
-                        echo implode($row);
-                    }else{ echo 0;}
-                    ?></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
-                    <td style="text-align: center;"></td>
+                    <?php
+                            $query="SELECT type1,
+                            sum(CASE WHEN weight1='2.5'  AND Type1='Dry Chem' THEN Qty1 END) AS '2.5LB', 
+                            sum(CASE WHEN weight1='5'  AND Type1='Dry Chem' THEN Qty1 END) AS '5LB', 
+                            sum(CASE WHEN weight1='6'  AND Type1='Dry Chem'  THEN Qty1 END) AS '6LB', 
+                            sum(CASE WHEN weight1='9'  AND Type1='Dry Chem'  THEN Qty1 END) AS '9LB', 
+                            sum(CASE WHEN weight1='10'  AND Type1='Dry Chem'  THEN Qty1 END) AS '10LB', 
+                            sum(CASE WHEN weight1='13'  AND Type1='Dry Chem' THEN Qty1 END) AS '13LB', 
+                            sum(CASE WHEN weight1='15'  AND Type1='Dry Chem'  THEN Qty1 END) AS '15LB', 
+                            sum(CASE WHEN weight1='17'  AND Type1='Dry Chem'  THEN Qty1 END) AS '17LB', 
+                            sum(CASE WHEN weight1='20'  AND Type1='Dry Chem'  THEN Qty1 END) AS '20LB', 
+                            sum(CASE WHEN weight1='30'  AND Type1='Dry Chem'  THEN Qty1 END) AS '30LB', 
+                            sum(CASE WHEN weight1='150'  AND Type1='Dry Chem' THEN Qty1 END) AS '150LB'  
+                            FROM FET1 WHERE date>'$fromDate' AND date<'$toDate';";
+                            $sqlQ=mysqli_query($server, $query);
+                            while ($row=mysqli_fetch_array($sqlQ)) {
+                                echo "
+                                <td>".$row['type1']."</td>
+                                <td style='text-align: center;'>".$row['2.5LB']."</td>
+                                <td style='text-align: center;'>".$row['5LB']."</td>
+                                <td style='text-align: center;'>".$row['6LB']."</td>
+                                <td style='text-align: center;'>".$row['9LB']."</td>
+                                <td style='text-align: center;'>".$row['10LB']."</td>
+                                <td style='text-align: center;'>".$row['13LB']."</td>
+                                <td style='text-align: center;'>".$row['15LB']."</td>
+                                <td style='text-align: center;'>".$row['20LB']."</td>
+                                <td style='text-align: center;'>".$row['30LB']."</td>
+                                <td style='text-align: center;'>".$row['150LB']."</td>
+                                ";
+                            }
+                            
+                    ?>
                 </tr>
                 <tr>
                     <td>Clean Guard</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
