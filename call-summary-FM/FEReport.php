@@ -283,7 +283,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </table>
 
         <table>
-        
+        1 AN442265 Extinguisher, Foray, AA05S-1 FireMaster  44.94
+        2 AN436580 Extinguisher, FORAY,FireMaster AA10S, 66.77
+        AN434909 Extinguisher, K-GUARD, K01-3, 30/pallet 212.14
+        AMB417T  FE B417T 2.5 ABC USA AM  31.57
         
         </table>
 
