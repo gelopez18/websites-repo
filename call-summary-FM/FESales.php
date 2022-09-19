@@ -25,14 +25,28 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $wkNumb=$_POST['wkNumb'];
     $date=date('Y-m-d');
 
-    $saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3, Qty4, item1, item2, item3, OtherQty1, OtherQty2, OtherQty3, wkNumb, date) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4', '$item1', '$item2', '$item3', '$OtherQty1', '$OtherQty2', '$OtherQty3', '$wkNumb', '$date');";
+    /*$saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3, Qty4, item1, item2, item3, OtherQty1, OtherQty2, OtherQty3, wkNumb, date) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4', '$item1', '$item2', '$item3', '$OtherQty1', '$OtherQty2', '$OtherQty3', '$wkNumb', '$date');";*/
+    if($Type1!='Choose one'){
+            $saveFESales="INSERT INTO FET1(SRO, Type1, weight1, Qty1,  wkNumb, date) VALUE('$SRO', '$Type1', '$weight1', '$Qty1', '$wkNumb', '$date');";
+            if (mysqli_query($server, $saveFESales)){
+                echo "<script>alert('FE Saved Succesfully');</script>";
+            } else {
+                echo"<script>alert(<h1>Invoice Not saved</h1>);</script>"
+                . mysqli_error($server);
+            }
+    } if($Type2!='Choose one'){
+        $saveFESales="INSERT INTO FET1(SRO, Type1, weight1, Qty1,  wkNumb, date) VALUE('$SRO', '$Type2', '$weight2', '$Qty2', '$wkNumb', '$date');";
+        mysqli_query($server, $saveFESales);
+    }
+    if($Type3!='Choose one'){
+        $saveFESales="INSERT INTO FET1(SRO, Type1, weight1, Qty1,  wkNumb, date) VALUE('$SRO', '$Type3', '$weight3', '$Qty3', '$wkNumb', '$date');";
+        mysqli_query($server, $saveFESales);
+    }
+    if($Type4!='Choose one'){
+        $saveFESales="INSERT INTO FET1(SRO, Type1, weight1, Qty1,  wkNumb, date) VALUE('$SRO', '$Type4', '$weight4', '$Qty4', '$wkNumb', '$date');";
+        mysqli_query($server, $saveFESales);
+    }
 
-if (mysqli_query($server, $saveFESales)){
-    echo "<script>alert('FE Saved Succesfully');</script>";
-} else {
-    echo"<script>alert(<h1>Invoice Not saved</h1>);</script>"
-    . mysqli_error($server);
-}
 }
 
 mysqli_close($server);
