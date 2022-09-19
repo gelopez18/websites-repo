@@ -46,6 +46,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $saveFESales="INSERT INTO FET1(SRO, Type1, weight1, Qty1,  wkNumb, date) VALUE('$SRO', '$Type4', '$weight4', '$Qty4', '$wkNumb', '$date');";
         mysqli_query($server, $saveFESales);
     }
+    if($item1!=''){
+        $saveFESales="INSERT INTO OtherItems(SRO, item, qty, wkNumb, date) VALUE('$SRO', '$item1', '$OtherQty1', '$wkNumb', '$date');";
+        mysqli_query($server, $saveFESales);
+    }
+    if($item2!=''){
+        $saveFESales="INSERT INTO OtherItems(SRO, item, qty, wkNumb, date) VALUE('$SRO', '$item2', '$OtherQty2', '$wkNumb', '$date');";
+        mysqli_query($server, $saveFESales);
+    }
+    if($item3!=''){
+        $saveFESales="INSERT INTO OtherItems(SRO, item, qty, wkNumb, date) VALUE('$SRO', '$item3', '$OtherQty3', '$wkNumb', '$date');";
+        mysqli_query($server, $saveFESales);
+    }
+    
 
 }
 
