@@ -1,10 +1,5 @@
-<?php
+<?php 
 require_once './includes/headers.php';
-require_once './includes/connectDB.php';
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $fromDate =$_POST['FromDate'];
-    $toDate =$_POST['ToDate'];
-
 ?>
 <div class="container">
 <form actions='FEReport.php' method="POST">
@@ -32,6 +27,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <br>
     
 </form>
+<?php
+
+require_once './includes/connectDB.php';
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $fromDate =$_POST['FromDate'];
+    $toDate =$_POST['ToDate'];
+
+?>
 <br>
         <h4>Fire Extinguisher Report from <?php echo "<b>$fromDate</b> to <b>$toDate</b></h4>"; ?><hr> 
         <table class="table table-success table-striped">

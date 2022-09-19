@@ -24,8 +24,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $OtherQty3=$_POST['OtherQty3'];
     $wkNumb=$_POST['wkNumb'];
     $date=date('Y-m-d');
-
-    /*$saveFESales="INSERT INTO FETable(SRO, Type1, Type2, Type3, Type4, weight1, weight2, weight3, weight4, Qty1, Qty2, Qty3, Qty4, item1, item2, item3, OtherQty1, OtherQty2, OtherQty3, wkNumb, date) VALUE('$SRO', '$Type1', '$Type2', '$Type3', '$Type4', '$weight1', '$weight2','$weight3', '$weight4', '$Qty1', '$Qty2', '$Qty3', '$Qty4', '$item1', '$item2', '$item3', '$OtherQty1', '$OtherQty2', '$OtherQty3', '$wkNumb', '$date');";*/
     if($Type1!='Choose one'){
             $saveFESales="INSERT INTO FET1(SRO, Type1, weight1, Qty1,  wkNumb, date) VALUE('$SRO', '$Type1', '$weight1', '$Qty1', '$wkNumb', '$date');";
             if (mysqli_query($server, $saveFESales)){
