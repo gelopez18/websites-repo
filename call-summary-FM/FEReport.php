@@ -285,12 +285,31 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             </tbody>
         </table>
 
-        <table>
+        
         1 AN442265 Extinguisher, Foray, AA05S-1 FireMaster  44.94
         2 AN436580 Extinguisher, FORAY,FireMaster AA10S, 66.77
         AN434909 Extinguisher, K-GUARD, K01-3, 30/pallet 212.14
         AMB417T  FE B417T 2.5 ABC USA AM  31.57
-        
+        <br>
+        <table>
+        <thead>
+                <tr style="text-align: center;">
+                    <th>SRO</th> <th>Item</th><th>Qty</th>  <th>Week Number</th>  <th>Date</th>  
+                </tr>
+            </thead>   
+            <tbody>
+                <?php
+                    $query="select SRO, item, qty, wkNumb, date from OtherItems WHERE date>'$fromDate' AND date<'$toDate';";
+                    $sqlResult=mysqli_query($server, $query);
+                    while($row=mysqli_fetch_array($sqlResult)){
+                        echo "
+                        <tr>
+                            <td>".$row['SRO']."</td><td>".$row['item']."</td><td>".$row['qty']."</td><td>".$row['wkNumb']."</td><td>".$row['date']."</td>
+                        </tr>
+                        ";
+                    }
+                ?>
+            </tbody>                            
         </table>
 
 <div>            
