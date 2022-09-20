@@ -110,7 +110,7 @@ echo "
                     </thead>
                     <tbody>"; 
                     while($Cityrow = mysqli_fetch_array($citySalesQy)){
-                      $Cityarray=array($Cityrow[0], number_format($Cityrow[1])); 
+                      $Cityarray=array($Cityrow[0], round($Cityrow[1])); 
                       $Cityarrayresult=json_encode($Cityarray);
                       echo"<script> CitysalesArray.push($Cityarrayresult);</script>
                       <tr>
@@ -123,8 +123,7 @@ echo "
                     </table>
                     <script> 
                     const sortedCitysalesArray=CitysalesArray.sort((a, b)=>{return a[1] - b[1];});
-                    sortedCitysalesArray.unshift(['City', 'Total']);
-                    console.log(CitysalesArray);
+                    sortedCitysalesArray.unshift(['City', 'Total']);                    
                     </script>
                     ";?>
                 </div>
@@ -137,23 +136,14 @@ echo "
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([CitysalesArray/*
-          ['City', 'Total'],
-          ['Santa Clarita*', 13690],
-          ['North Hollywood (Los Angeles*)', 391],
-          ['Sun Valley (Los Angeles*)', 9523],
-          ['Canyon Country (Santa Clarita*)', 7980],
-          ['Burbank*', 27091],
-          ['Valencia (Santa Clarita*)', 10842],
-          ['Sylmar (Los Angeles*)', 8548],
-          ['Newhall (Santa Clarita*)', 4075],
-          ['Los Angeles', 174],
-          ['San Fernando*', 2068]
-        */]/*CitysalesArray*/);
+        console.log(CitysalesArray);
+
+        var data = google.visualization.arrayToDataTable(CitysalesArray);
 
         var options = {
           title: 'City\'s Total Analysis',
-          pieHole: 0.4
+          pieHole: 0.4,
+          is3D: true
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));

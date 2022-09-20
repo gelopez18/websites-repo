@@ -286,12 +286,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </table>
 
         
-        1 AN442265 Extinguisher, Foray, AA05S-1 FireMaster  44.94
-        2 AN436580 Extinguisher, FORAY,FireMaster AA10S, 66.77
-        AN434909 Extinguisher, K-GUARD, K01-3, 30/pallet 212.14
-        AMB417T  FE B417T 2.5 ABC USA AM  31.57
+        1 AN442265 Extinguisher, Foray, AA05S-1 FireMaster  44.94  <br>
+        2 AN436580 Extinguisher, FORAY,FireMaster AA10S, 66.77  <br>
+        AN434909 Extinguisher, K-GUARD, K01-3, 30/pallet 212.14  <br>
+        AMB417T  FE B417T 2.5 ABC USA AM  31.57 <br>
         <br>
-        <table>
+        <table class="table table-success table-striped">
         <thead>
                 <tr style="text-align: center;">
                     <th>SRO</th> <th>Item</th><th>Qty</th>  <th>Week Number</th>  <th>Date</th>  
@@ -303,7 +303,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                     $sqlResult=mysqli_query($server, $query);
                     while($row=mysqli_fetch_array($sqlResult)){
                         echo "
-                        <tr>
+                        <tr style='text-align: center;'>
                             <td>".$row['SRO']."</td><td>".$row['item']."</td><td>".$row['qty']."</td><td>".$row['wkNumb']."</td><td>".$row['date']."</td>
                         </tr>
                         ";
