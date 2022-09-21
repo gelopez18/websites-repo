@@ -10,5 +10,4 @@ export class app extends applicationBase{
         super('Financial Tools');
     }
 }
-export let application = new app();
-application.show($('body'));
+export 

@@ -1,7 +1,12 @@
 const express = require('express');
+const $ = require( "jquery" );
+const navbar = require("./UI/nav-bar");
 const app = express();
+const port = 3000;
+
+const Amortization = require('./routes/amortization');  
+const conversion = require('./routes/conversion'); 
+app.use('/amortization', Amortization);
+app.use('/conversion', conversion);
   
-const test = require('./routes');  
-app.use('/', test);
-  
-app.listen(3000, () => {console.log('working on port 3000')});
+app.listen(port, () => {console.log('working on port 3000')});
