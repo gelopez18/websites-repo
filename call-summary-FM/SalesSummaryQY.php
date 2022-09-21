@@ -3,32 +3,33 @@ require_once './includes/headers.php';
 require_once './includes/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-    /*$clientClass = $_POST['ClientClass'];
-    $wkNumb=$_POST['wkNumb'];*/
-
+    $clientClass = $_POST['ClientClass'];
+    $wkNumb=$_POST['wkNumb'];
+    setcookie("clientClass", $clientClass);
+    setcookie("wkNumb", $clientClass);
 }
-$clientClass = 'C';
-$wkNumb=40;
+
+//$clientClass = 'C';
+//$wkNumb=40;
 $result_per_page=10;
 //QUERIES
-
-$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$clientClass';";//REMEMBER TO CHANGE BACK TO THE VARIABLE
+$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$clientClass';";
 
 
 //send all the queries to the server. 
-
-
 $Result= $server->query($sqlQuery);
 $TotalofRec = mysqli_num_rows($Result);
 //determine the number of pages 
 $numb_of_pages = ceil($TotalofRec/$result_per_page);
 //determinate what number of page the user is on 
-if(!isset($_GET['page'])){
+if(!isset($_GET['page']) ){
     $page=1;
+    
 }else{
-    $page = $_GET['page'];
+    $page = $_GET['page'];   
 }
-//determinate the results per page - page1 1-10, page2 11-20, page3 21-30
+
+//determinate the results per 
 $thisPageFirstResult = ($page-1)*$result_per_page;
 
 $sqlQuery1 = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='$clientClass' LIMIT $thisPageFirstResult, $result_per_page;";
@@ -192,7 +193,7 @@ while($row = mysqli_fetch_array($result)){
                 <?php
                 //set the number of pages 
     for($page=1; $page<=$numb_of_pages; $page++){
-        echo "<li class='page-item'><a class='page-link' href='SalesSummaryQY.php?page=$page'>$page</a></li>";
+        echo "<li class='page-item'><a class='page-link' href='SalesSummaryQY.php?page=$page&wkNumb=$wkNumb&clientClass=$clientClass'>$page</a></li>";
     }
     ?>
                 </li>
