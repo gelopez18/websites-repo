@@ -1,7 +1,7 @@
 <?php 
 require_once './includes/headers.php';
 ?>
-<form class = container method="POST" action="SalesSummaryQY.php?page=1" >
+<form class = container method="GET" action="SalesSummaryQY.php?page=1" >
 <div class="card ">
       <div class="card-header">
         <h5>Sales Summary Requested</h5>

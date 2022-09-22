@@ -2,9 +2,9 @@
 require_once './includes/headers.php';
 require_once './includes/connectDB.php';
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-   $clientClass = $_POST['ClientClass'];
-    $wkNumb=$_POST['wkNumb'];
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+   $clientClass = $_GET['ClientClass'];
+    $wkNumb=$_GET['wkNumb'];
 }
 
  /*$clientClass = 'C';
