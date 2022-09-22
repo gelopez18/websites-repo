@@ -3,14 +3,12 @@ require_once './includes/headers.php';
 require_once './includes/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $clientClass = $_POST['ClientClass'];
+   $clientClass = $_POST['ClientClass'];
     $wkNumb=$_POST['wkNumb'];
-    setcookie("clientClass", $clientClass);
-    setcookie("wkNumb", $clientClass);
 }
 
-//$clientClass = 'C';
-//$wkNumb=40;
+ /*$clientClass = 'C';
+$wkNumb=40;*/
 $result_per_page=10;
 //QUERIES
 $sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$clientClass';";
@@ -24,10 +22,11 @@ $numb_of_pages = ceil($TotalofRec/$result_per_page);
 //determinate what number of page the user is on 
 if(!isset($_GET['page']) ){
     $page=1;
-    
 }else{
     $page = $_GET['page'];   
 }
+
+
 
 //determinate the results per 
 $thisPageFirstResult = ($page-1)*$result_per_page;
@@ -193,7 +192,8 @@ while($row = mysqli_fetch_array($result)){
                 <?php
                 //set the number of pages 
     for($page=1; $page<=$numb_of_pages; $page++){
-        echo "<li class='page-item'><a class='page-link' href='SalesSummaryQY.php?page=$page&wkNumb=$wkNumb&clientClass=$clientClass'>$page</a></li>";
+
+        echo "<li class='page-item'><a class='page-link' href='SalesSummaryQY.php?page=$page'>$page</a></li>";
     }
     ?>
                 </li>
