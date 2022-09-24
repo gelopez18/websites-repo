@@ -1,7 +1,7 @@
 <?php 
 require_once './includes/headers.php';
 ?>
-<form class = container method="GET" action="SalesSummaryQY.php?page=1" >
+<form class=container method="GET" action="SalesSummaryQY.php?page=1" >
 <div class="card ">
       <div class="card-header">
         <h5>Sales Summary Requested</h5>
@@ -12,13 +12,13 @@ require_once './includes/headers.php';
     </div>
 <div class="mb-3 form-check">
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="ClientClass" id="ClientClassN" Value="N">
+      <input class="form-check-input" type="radio" name="clientClass" id="ClientClassN" Value="N">
       <label class="form-check-label" for="flexRadioDefault1">
           National
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="ClientClass" id="ClientClassC" Value="C" checked>
+      <input class="form-check-input" type="radio" name="clientClass" id="ClientClassC" Value="C" checked>
       <label class="form-check-label" for="flexRadioDefault2">
           Core
       </label>

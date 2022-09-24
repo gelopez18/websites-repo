@@ -3,15 +3,15 @@ require_once './includes/headers.php';
 require_once './includes/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="GET"){
-   $clientClass = $_GET['ClientClass'];
+    $ClientClass = $_GET['clientClass'];
     $wkNumb=$_GET['wkNumb'];
 }
 
- /*$clientClass = 'C';
+   /*$clientClass = 'C';
 $wkNumb=40;*/
 $result_per_page=10;
 //QUERIES
-$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$clientClass';";
+$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$ClientClass';";
 
 
 //send all the queries to the server. 
@@ -22,19 +22,21 @@ $numb_of_pages = ceil($TotalofRec/$result_per_page);
 //determinate what number of page the user is on 
 if(!isset($_GET['page']) ){
     $page=1;
+    $ClientClass = $_GET['clientClass'];
+    $wkNumb=$_GET['wkNumb'];
 }else{
-    $page = $_GET['page'];   
+    $page = $_GET['page'];  
 }
-
-
-
 //determinate the results per 
 $thisPageFirstResult = ($page-1)*$result_per_page;
+//query to get results per page
+$sqlQuery1 = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='$ClientClass' LIMIT $thisPageFirstResult, $result_per_page;";
+//query to get the total sum for limit 
+$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$ClientClass'LIMIT $thisPageFirstResult, $result_per_page;";
 
-$sqlQuery1 = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='$clientClass' LIMIT $thisPageFirstResult, $result_per_page;";
-$sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$clientClass'LIMIT $thisPageFirstResult, $result_per_page;";
 $result=mysqli_query($server, $sqlQuery1);
 $total = $server->query($sqlSum);
+
 //results
 if ($Result->num_rows > 0) {
 
@@ -146,7 +148,7 @@ while($row = mysqli_fetch_array($result)){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <?php
         $Trry=[];
-        $sroQuery="SELECT total FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$clientClass' LIMIT $thisPageFirstResult, $result_per_page;";
+        $sroQuery="SELECT total FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$ClientClass' LIMIT $thisPageFirstResult, $result_per_page;";
         $TT=mysqli_query($server, $sroQuery);
     
             while($row=mysqli_fetch_array($TT)){
@@ -193,7 +195,7 @@ while($row = mysqli_fetch_array($result)){
                 //set the number of pages 
     for($page=1; $page<=$numb_of_pages; $page++){
 
-        echo "<li class='page-item'><a class='page-link' href='SalesSummaryQY.php?page=$page'>$page</a></li>";
+        echo "<li class='page-item'><a class='page-link' href='SalesSummaryQY.php?page=$page&wkNumb=$wkNumb&clientClass=$ClientClass'>$page</a></li>";
     }
     ?>
                 </li>
