@@ -2,7 +2,7 @@
 require_once './includes/headers.php';
 
 ?>
-<form class = container method="POST" action="USRQY.php" >
+<form class = container method="GET" action="USRQY.php?" >
 <div class="card ">
   <div class="card-header">
     <h5>USR Requesting</h5>

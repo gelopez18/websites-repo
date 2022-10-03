@@ -6,12 +6,10 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     $ClientClass = $_GET['clientClass'];
     $wkNumb=$_GET['wkNumb'];
 }
-
-   /*$clientClass = 'C';
-$wkNumb=40;*/
+$inputDate=getdate(date("U"));
 $result_per_page=10;
 //QUERIES
-$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$ClientClass';";
+$sqlQuery = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent, NewAcct FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$ClientClass' AND year=$inputDate[year];";
 
 
 //send all the queries to the server. 
@@ -30,7 +28,7 @@ if(!isset($_GET['page']) ){
 //determinate the results per 
 $thisPageFirstResult = ($page-1)*$result_per_page;
 //query to get results per page
-$sqlQuery1 = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='$ClientClass' LIMIT $thisPageFirstResult, $result_per_page;";
+$sqlQuery1 = "SELECT SRO, total, client, clientClass, OverRide, overRidePercent, NewAcct  FROM salessummaries WHERE wkNumb='$wkNumb' AND clientClass='$ClientClass' LIMIT $thisPageFirstResult, $result_per_page;";
 //query to get the total sum for limit 
 $sqlSum = "SELECT SUM(total) FROM salessummaries WHERE wkNumb='$wkNumb' AND ClientClass='$ClientClass'LIMIT $thisPageFirstResult, $result_per_page;";
 
@@ -111,11 +109,17 @@ while($row = mysqli_fetch_array($result)){
     <td class='borderCSS' id='centerT'>".$row["overRidePercent"]."</td>
     <td class='borderCSS'></td>
     <td class='borderCSS'>FDEL001</td>
-    <td class='borderCSS'>54%</td>
+    <td class='borderCSS'>54%</td>";
+if($row["NewAcct"]=='New'){
+    echo      "<td class='borderCSS'>".$row["NewAcct"]."</td>
+    <td class='borderCSS'>25%</td>
+</tr>";
+}else{
+    echo   "<td class='borderCSS'></td>
     <td class='borderCSS'></td>
-    <td class='borderCSS'></td>
-</tr>"
-;
+</tr>";
+}
+  
 }echo "</table>";
 } else {
     echo "0 results";

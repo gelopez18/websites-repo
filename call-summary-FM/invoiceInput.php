@@ -2,6 +2,7 @@
   require_once __DIR__ . '/includes/connectDB.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+        $newAcct=$_POST['NewAcct'];
         $SRO=$_POST['sro'];
         $wkNumb=$_POST['wkNumb'];
         $client=$_POST['Client'];
@@ -25,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $inputDate=getdate(date("U"));
       
         
-    $InsertToTable = "INSERT INTO  salessummaries(SRO, wkNumb, client, total, city, clientClass, OverRide, overRidePercent, month, day, year) VALUES ('$SRO','$wkNumb','$client','$total','$city','$clientClass','$overRide','$ORPercent','$inputDate[month]','$inputDate[mday]','$inputDate[year]');";
+    $InsertToTable = "INSERT INTO  salessummaries(SRO, wkNumb, client, total, city, clientClass, OverRide, overRidePercent, month, day, year, NewAcct) VALUES ('$SRO','$wkNumb','$client','$total','$city','$clientClass','$overRide','$ORPercent','$inputDate[month]','$inputDate[mday]','$inputDate[year]', '$newAcct');";
 
     if (mysqli_query($server, $InsertToTable)){
         echo "<script>alert('Invoice Saved Succesfully')$city;</script>";
@@ -43,7 +44,13 @@ include_once './includes/headers.php';
 ?> 
 <form class="card-body container" method="POST" action="invoiceInput.php"><h1>Invoice Details</h1><hr class="undefined">
     <div class='row row-cols-auto'>
-    <div class="col"></div>
+    <div class="col">        
+        <div class="form-check form-switch">
+          <input type="hidden" name="NewAcct"  value="" />
+          <input class="form-check-input" type="checkbox" role="switch" name="NewAcct" unchecked value='New'>
+          <label class="form-check-label" for="flexSwitchCheckChecked">New Account</label>
+        </div>
+    </div>
       <div class="col"></div>
       <div class="mb-3 form-check">
         <div class="form-check">
@@ -51,13 +58,15 @@ include_once './includes/headers.php';
         <label class="form-check-label" for="flexRadioDefault1">
             National
         </label>
-        </div>
-        <div class="form-check">
+      </div>
+      <div class="form-check">
         <input class="form-check-input" type="radio" name="ClientClass" id="ClientClass" Value="C" checked>
         <label class="form-check-label" for="flexRadioDefault2">
             Core
         </label>
-        </div>
+      </div>
+
+
       </div>
       
       </div>

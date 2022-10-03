@@ -3,12 +3,12 @@
 require_once './includes/headers.php';
 require_once './includes/connectDB.php';
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $clientClass = $_POST['ClientClass'];
-    $wkNumb=$_POST['wkNumb'];
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+    $clientClass = $_GET['ClientClass'];
+    $wkNumb=$_GET['wkNumb'];
 }
 
-$sqlQuery = "SELECT SRO, total, client, clientClass, Comment, month, day, year FROM usr WHERE wkNumb='$wkNumb' AND clientClass='$clientClass' LIMIT 10;";
+$sqlQuery = "SELECT SRO, total, client, clientClass, Comment, month, day, year FROM usr WHERE wkNumb='$wkNumb' AND clientClass='$clientClass';";
 
 $sqlSum="SELECT SUM(total) FROM usr WHERE wkNumb='$wkNumb' AND clientClass='$clientClass';";
 
@@ -22,7 +22,11 @@ if ($Result->num_rows > 0) {
       <div class=''>
       <div class='row'>
       <div class='col'>
-      <img class='' src='./img/Picture2.png'>
+        <form type=hidden method=GET action=usrPages.php?>
+        <input type=hidden name=wkNumb value='$wkNumb'>
+        <input type=hidden name=ClientClass value='$clientClass'>
+        <button><img class='' src='./img/Picture2.png'></button>
+        </form>
       </div>
    
       <div class='col-5'>
