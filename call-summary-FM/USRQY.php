@@ -30,7 +30,7 @@ if ($Result->num_rows > 0) {
       </div>
    
       <div class='col-5'>
-          <table >
+          <table class='table'>
               <tr id='wkInfo'>
                   <td>
                       Summary ID <b>wk$wkNumb-2022</b>
