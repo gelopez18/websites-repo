@@ -35,7 +35,7 @@ echo "
 
                     </table>
         </div>
- </div>
+ </div><br>
 
     <div class='grid text-center' style='--bs-columns:5 ;'>
         <div></div>
@@ -53,7 +53,12 @@ echo "
         </div>
         <div></div>
     </div>
-    <label>Site Name and Address:</label><br><br>
+
+        <label class=''>Site Name and Address:</label>
+        <div class='border-bottom '></div><br>
+
+        
+
     <div class='grid text-center' style='--bs-columns:5 ;'>
         <div>
             <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
@@ -71,12 +76,122 @@ echo "
         <div></div>
     </div><br>
     <div class='grid text-center' style='--bs-columns:4 ;'>
-        <div><label>verified with:</label></div>
-        <div></div>
-        <div><label>Phone:</label></div>
-        <div></div>
+        <div class='d-flex flex-row-reverse'><label>verified with:</label></div>
+        <div class='border-bottom'></div>
+        <div class='d-flex flex-row-reverse'><label>Phone:</label></div>
+        <div class='border-bottom'></div>
     </div><br>
-    <label>New Address:</label><br><br>
+
+    <label>New Address:</label><br>
+    <div class='border-bottom'></div><br>
+    <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+    <label>Refuse/Cancel</label> 
+            <div class='grid text-center' style='--bs-columns:6 ;'>
+                <div class='d-flex flex-row-reverse'><label>Contact Name:</label></div>
+                <div class='border-bottom'></div>
+                <div class='d-flex flex-row-reverse'><label>Phone:</label></div>
+                <div class='border-bottom'></div>
+                <div class='d-flex flex-row-reverse'>Annual Value</div>
+                <div class='border-bottom'></div>
+            </div><br>
+            <label>Reason for Cancelation:</label><br>
+            <div class='border-bottom'></div><br>
+            <div></div>
+            <div class='grid text-center' style='--bs-columns:4 ;'>
+                <div class='d-flex flex-row-reverse'><label>Additional Instructions:</label></div>
+                <div class='border-bottom'></div>
+                <div class='d-flex flex-row-reverse'><label>Retain or Cancelled:</label></div>
+                <div class='border-bottom'></div>
+            </div><br>
+    <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+    <label>Service by others</label> 
+            <div class='grid text-center' style='--bs-columns:4 ;'>
+                <div class='d-flex flex-row-reverse'><label>Competitors Name</label></div>
+                <div class='border-bottom'></div>
+                <div class='d-flex flex-row-reverse'><label>Service Tag Name:</label></div>
+                <div class='border-bottom'></div>
+            </div><br>
+            <div class='grid ' style='--bs-columns:2 ;'>
+                <div class='d-flex flex-row-reverse'><label>Refile Date:</label></div>
+                <div class='border-bottom'></div>
+            </div>
+    <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+    <label>Request to refiled</label> 
+            <div class='grid text-center' style='--bs-columns:4 ;'>
+                <div class='d-flex flex-row-reverse'><label>Contact Name:</label></div>
+                <div class='border-bottom'></div>
+                <div class='d-flex flex-row-reverse'><label>Refile Date:</label></div>
+                <div class='border-bottom'></div>
+            </div><br>
+            <div class='grid text-center' style='--bs-columns:4 ;'>
+                <div class='d-flex flex-row-reverse'><label>Phone number:</label></div>
+                <div class='border-bottom'></div>
+                <div class='d-flex flex-row-reverse'><label>Reason to refile</label></div>
+                <div class='border-bottom'></div>
+            </div><br>
+    
+    <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+    <label>Done Under another SRO</label> 
+        <div class='grid text-center' style='--bs-columns:4 ;'>
+            <div class='d-flex flex-row-reverse'><label>SRO:</label></div>
+            <div class='border-bottom'></div>
+            <div class='d-flex flex-row-reverse'><label>Date</label></div>
+            <div class='border-bottom'></div>
+        </div>
+    <div class='grid text-center' style='--bs-columns:5 ;'>
+        <div>
+            <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+            <label>Reassigned</label>
+        </div>
+        <div>
+            <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+            <label>Out of district</label>
+        </div>
+        <div>
+            <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+            <label>Out of Territory</label>
+        </div>
+        <div>
+            <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+            <label>Wrong Service type</label>
+        </div>
+    </div>
+    <div class='grid text-center' style='--bs-columns:4 ;'>
+        <div class='d-flex flex-row-reverse'><label>Confirmed by:</label></div>
+        <div class='border-bottom'></div>
+        <div class='d-flex flex-row-reverse'><label>Assigned To:</label></div>
+        <div class='border-bottom'></div>
+    </div><br>
+    <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+    <label>Out of FireMaster Territory</label> 
+    <hr>
+    <div class='grid text-center' style='--bs-columns:4 ;'>
+        <div class='d-flex flex-row-reverse'><label>Distric Manager Approval :</label></div>
+        <div class='border-bottom'></div>
+        <div class='d-flex flex-row-reverse'><label>Assigned To:</label></div>
+        <div class='border-bottom'></div>
+    </div>
+
+            <div><label>District comments :</label></div>
+            <div class='border-bottom'></div><br>
+            <div class='border-bottom'></div><br>
+            <div ><label>Corporate comments:</label></div>
+            <div class='border-bottom'></div><br>
+            <div class='border-bottom'></div><br>
+
+    <div class='grid text-center' style='--bs-columns:4 ;'>
+            <div>
+                <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'>
+                <label>Decline</label> 
+            </div>
+            <div class='border-bottom'></div>
+            <div class='d-flex flex-row-reverse'><label>Reason:</label></div>
+            <div class='border-bottom'></div>
+    </div><br>
+    <div class='grid text-center' style='--bs-columns:2 ;'>
+        <div class='d-flex flex-row-reverse'><label>Transfer to Sales Team:</label></div>
+        <div class='border-bottom'></div>
+    </div><br><br><br><br><br>
   ";
 
 
