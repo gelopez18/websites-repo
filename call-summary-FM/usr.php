@@ -59,6 +59,25 @@ require_once './includes/connectDB.php';
         <label for="formGroupExampleInput" class="form-label">Client</label>
         <input type="text" name="Client" class="form-control " id="Client" placeholder="Client">
      </div><br>
+     <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Reason</label>
+            <select class="form-select" id="Reason" name="Reason">
+                    <option selected="">Choose...</option>
+                    <option value="Not an Address"> Not an Address</option>
+                    <option value="Relocated">Relocated</option>
+                    <option value="New Tenant">New Tenant</option>
+                    <option value="Out of business">Out of business</option>
+                    <option value="Refuse/Cancel">Refuse/Cancel</option>
+                    <option value="Service by others">Service by others</option>
+                    <option value="Request to refiled">Request to refiled</option>
+                    <option value="Done Under another SRO">Done Under another SRO</option>
+                    <option value="Reassigned">Reassigned</option>
+                    <option value="Out of district">Out of district</option>
+                    <option value="Out of Territory">Out of Territory</option>
+                    <option value="Wrong Service type">Wrong Service type</option>
+                    <option value="Out of FireMaster Territory">Out of FireMaster Territory</option>
+            </select>
+        </div><br>
      <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Comment</label>
         <textarea class="form-control" name="Comment" id="exampleFormControlTextarea1" rows="3" placeholder="Comment"></textarea>

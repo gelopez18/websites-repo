@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"]=="GET"){
     $wkNumb=$_GET['wkNumb'];
 }
 
-$sqlQuery = "SELECT SRO, total, client, clientClass, Comment, month, day, year FROM usr WHERE wkNumb='$wkNumb' AND clientClass='$clientClass';";
+$sqlQuery = "SELECT SRO, total, client, clientClass, city, Comment, month, day, year FROM usr WHERE wkNumb='$wkNumb' AND clientClass='$clientClass';";
 
 $Result=array();
 $Result=mysqli_query($server, $sqlQuery);
@@ -55,7 +55,7 @@ echo "
     </div>
 
         <label class=''>Site Name and Address:</label>
-        <div class='border-bottom '></div><br>
+        <div class='border-bottom text-center'><b>".$row['client']." - ".$row['city']."</b></div><br>
 
         
 
