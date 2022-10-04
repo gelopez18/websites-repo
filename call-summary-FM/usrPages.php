@@ -191,7 +191,7 @@ echo "
     <div class='grid text-center' style='--bs-columns:2 ;'>
         <div class='d-flex flex-row-reverse'><label>Transfer to Sales Team:</label></div>
         <div class='border-bottom'></div>
-    </div><br><br><br><br><br>
+    </div><br><br><br>
   ";
 
 
