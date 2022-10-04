@@ -133,7 +133,7 @@ echo "
     </div><br>
 
     <label>New Address:</label><br>
-    <div class='border-bottom'></div>
+    <div class='border-bottom'></div><br>
     <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault' $R1>
     <label>Refuse/Cancel</label> 
             <div class='grid text-center' style='--bs-columns:6 ;'>
